@@ -7,7 +7,7 @@ const Review = () => {
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       
-      <h1 className="sm:text-3xl text-3xl font-extrabold title-font text-black">
+      <h1 className="sm:text-3xl text-3xl font-extrabold title-font text-black ">
         OUR HAPPY CUSTOMERS
       </h1>
     </div>
@@ -44,7 +44,7 @@ const Review = () => {
         <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
           <div className="flex items-center mb-3">
           
-<div className="space-x-1">
+<div className="flex space-x-1">
       {/* Repeat this SVG for the number of stars you want */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const Review = () => {
               <div className="flex items-center space-x-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-white bg-green-500"
+    className="h-6 w-6 text-white bg-green-500 rounded-md"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
