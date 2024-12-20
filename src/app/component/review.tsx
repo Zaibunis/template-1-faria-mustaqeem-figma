@@ -58,12 +58,12 @@ const Review = () => {
       >
         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
       </svg>
-            <h2 className="text-black text-lg title-font font-bold">
+            <h2 className="flex text-black text-lg title-font font-bold">
               Sarah M.
               <div className="flex items-center space-x-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-white bg-green-500 rounded-lg"
+    className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -135,7 +135,7 @@ const Review = () => {
               <div className="flex items-center space-x-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-white bg-green-500 rounded-lg"
+    className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -202,12 +202,12 @@ const Review = () => {
       >
         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
       </svg>
-            <h2 className="text-black text-lg title-font font-bold">
+            <h2 className="flex text-black text-lg title-font font-bold">
               James L.
               <div className="flex items-center space-x-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-white bg-green-500 rounded-lg"
+    className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
