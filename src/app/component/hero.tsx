@@ -47,8 +47,6 @@ export default function Hero() {
             </div>
           </div>
           </div>
-
-          
   
           {/* Right Content */}
 <div className="lg:w-1/2 flex items-center justify-center relative">
@@ -65,7 +63,7 @@ export default function Hero() {
 <section className="relative md:px-4 min-h-[448px] md:min-h-[428px] bg-cover bg-top xl:bg-[center_top_-1.6rem] bg-no-repeat bg-[url('/images/header-res-homepage.png')] md:bg-[url('/images/header-homepage.png')]">
           <Image
             priority
-            src="/icons/big-star.svg"
+            src="/Vector (1).png"
             height={104}
             width={104}
             alt="big star"
@@ -73,7 +71,7 @@ export default function Hero() {
           />
           <Image
             priority
-            src="/icons/small-star.svg"
+            src="/Vector.png"
             height={56}
             width={56}
             alt="small star"
