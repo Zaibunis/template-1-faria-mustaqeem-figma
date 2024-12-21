@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
 export default function Hero() {
     return (
@@ -17,6 +18,33 @@ export default function Hero() {
                             <span className="text-lg font-medium mr-2">Shop Now</span>
                            
                         </div>
+                        <div className="flex md:h-full md:max-h-11 lg:max-h-[52px] xl:max-h-[68px] items-center justify-center md:justify-start flex-wrap sm:flex-nowrap md:space-x-3 lg:space-x-6 xl:space-x-8 md:mb-[116px]">
+            <div className="flex flex-col">
+              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                200+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap">
+                International Brands
+              </span>
+            </div>
+            <Separator className="ml-6 md:ml-0 h-12 md:h-full bg-black/10" orientation="vertical" />
+            <div className="flex flex-col ml-6 md:ml-0">
+              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                2000+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap">
+                High-Quality Products
+              </span>
+            </div>
+            <Separator className="hidden sm:block sm:h-12 md:h-full ml-6 md:ml-0 bg-black/10" orientation="vertical" />
+            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0">
+              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                30,000+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap">
+                Happy Customers
+              </span>
+            </div>
           </div>
   
           {/* Right Content */}

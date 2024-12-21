@@ -7,7 +7,7 @@ const Review = () => {
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       
-      <h1 className="sm:text-3xl text-3xl font-extrabold title-font text-black ">
+      <h1 className="text-[32px] text-black leading-[36px] md:text-5xl capitalize mr-auto">
         OUR HAPPY CUSTOMERS
       </h1>
     </div>
@@ -77,7 +77,7 @@ const Review = () => {
           </div>
           <div className="flex-grow">
             <p className="leading-relaxed text-base">
-            &ldquo;I&apos;m blown away by the quality and style of the clothes I received from <span className="font-semibold text-indigo-600">Shop.co</span>. From casual wear to elegant dresses, every piece I&apos;ve bought has exceeded my expectations.&rdquo;
+            &ldquo;I&apos;m blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I&apos;ve bought has exceeded my expectations.&rdquo;
             </p>
             
           </div>
@@ -149,7 +149,7 @@ const Review = () => {
           </div>
           <div className="flex-grow">
             <p className="leading-relaxed text-base">
-            &ldquo;Finding clothes that align with my personal style used to be a challenge until I discovered <span className="font-semibold text-indigo-600">Shop.co</span>. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.&rdquo;
+            &ldquo;Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.&rdquo;
             </p>
             
           </div>
@@ -221,7 +221,7 @@ const Review = () => {
           </div>
           <div className="flex-grow">
             <p className="leading-relaxed text-base">
-            &ldquo;As someone who&apos;s always on the lookout for unique fashion pieces, I&apos;m thrilled to have stumbled upon <span className="font-semibold text-indigo-600">Shop.co</span>. The selection of clothes is not only diverse but also on-point with the latest trends.&rdquo;
+            &ldquo;As someone who&apos;s always on the lookout for unique fashion pieces, I&apos;m thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.&rdquo;
             </p>
            
           </div>
