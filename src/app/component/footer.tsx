@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
     <span className="ml-3 text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
       <p className="mt-2 text-sm text-gray-500 mb-10">
-      We have clothes that suits your style and which you're proud to wear. From women to men.
+      We have clothes that suits your style and which you&apos;re proud to wear. From women to men.
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a className="text-white bg-black">
