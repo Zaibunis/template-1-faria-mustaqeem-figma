@@ -7,7 +7,7 @@ import DressStyle from "./component/dressStyle";
 import DressStyleCard from "./component/dressStyleCard";
 import Review from "./component/review"
 import Footer from "./component/footer"
-import Fad from "./component/f"
+
 
 
 
@@ -23,7 +23,7 @@ export default function Land() {
 <DressStyleCard title={""} url={""} />
 <Review />
 <Footer />
-<Fad />
+
   </div>  
   );
 }
