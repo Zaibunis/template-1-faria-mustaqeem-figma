@@ -11,7 +11,7 @@ const Footer = () => {
       &ldquo;We have clothes that suit your style and that you&apos;re proud to wear—from women&apos;s to men&apos;s.&rdquo;
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-        <a className="text-white">
+        <a className="text-white bg-black">
           <svg
             fill="currentColor"
             strokeLinecap="round"
