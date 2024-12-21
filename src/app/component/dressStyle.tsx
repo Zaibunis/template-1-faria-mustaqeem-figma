@@ -36,14 +36,14 @@ const DressStyle = () => {
           
           <DressStyleCard
             title="Casual"
-            url="/shop#casual"
+            url="/"
             className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[url('/images/Frame 61.png')]"
           />
           </span>
           <span>
           <DressStyleCard
             title="Formal"
-            url="/shop#formal"
+            url="/"
             className="md:max-w-[684px] h-[190px] bg-[url('/images/Frame 62.png')"
           />
           </span>
@@ -57,12 +57,12 @@ const DressStyle = () => {
         >
           <DressStyleCard
             title="Party"
-            url="/shop#party"
+            url="/"
             className="md:max-w-[684px] h-[190px] bg-[url('/images/dress-style-3.png')]"
           />
           <DressStyleCard
             title="Gym"
-            url="/shop#gym"
+            url="/"
             className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[url('/images/dress-style-4.png')]"
           />
         </motion.div>
