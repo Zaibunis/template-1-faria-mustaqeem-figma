@@ -1,5 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+
 
 export default function Home(){
     return(
@@ -27,8 +38,17 @@ export default function Home(){
     <ul className="flex items-center gap-x-12">
       <li>
         <Link href="/" className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
-          Shop
-          <Image src="/Frame (7).png" alt="Dropdown" width={12} height={12} />
+        <NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink>Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+
         </Link>
       </li>
       <li>
