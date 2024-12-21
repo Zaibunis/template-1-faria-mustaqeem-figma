@@ -231,15 +231,16 @@ const Review = () => {
       </div>
     </div>
   </div>
-  <div className='w-[1240px] h-[180px] bg-black '>
+  <div className='w-[1240px] h-[180px] bg-black ml-[50px] rounded-lg'>
 <span className='text-[#FFFFFF] text-3xl font-extrabold'>STAY UPTO DATE ABOUT<br /> OUR LATEST OFFERS</span>
-  </div>
-  <div className='flex'>
+<div className='flex'>
   <Image src={"/Frame (8).png"} width={24} height={24} alt=''/>
   </div>
  <div className='rounded-lg'>
   <Input type="email" placeholder="Enter your email address" className='w-[349px] h-[48px]'/>
   </div>
+  </div>
+ 
 </section>
 
     </div>

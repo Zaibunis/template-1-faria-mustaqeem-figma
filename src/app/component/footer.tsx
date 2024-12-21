@@ -6,9 +6,9 @@ const Footer = () => {
       <footer className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-    <span className="ml-3 w-[167px] h-[23px] text-black font-extrabold mb-[10px]">SHOP.CO</span>
+    <span className="ml-3 text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
       <p className="mt-2 text-sm text-gray-500 mb-10">
-      &ldquo;We have clothes that suit your style and that you&apos;re proud to wear—from women&apos;s to men&apos;s.&rdquo;
+      We have clothes that suits your style and which you're proud to wear. From women to men.
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a className="text-white bg-black">
@@ -70,7 +70,7 @@ const Footer = () => {
     </div>
     <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
         Company
         </h2>
         <nav className="list-none mb-10">
@@ -90,7 +90,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
         Help
         </h2>
         <nav className="list-none mb-10">
@@ -110,7 +110,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
         FAQ
         </h2>
         <nav className="list-none mb-10">
@@ -130,7 +130,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
         Resources
         </h2>
         <nav className="list-none mb-10">
