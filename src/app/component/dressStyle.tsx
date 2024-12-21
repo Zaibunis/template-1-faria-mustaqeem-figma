@@ -28,14 +28,14 @@ const DressStyle = () => {
         >
           
           <DressStyleCard
-            title="Casual"
+            title="/"
             url="/"
             className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[url('/images/Frame 61.png')]"
           />
          
           <span>
           <DressStyleCard
-            title="Formal"
+            title="/"
             url="/"
             className="md:max-w-[684px] h-[190px] bg-[url('/images/Frame 62.png')"
           />
@@ -49,12 +49,12 @@ const DressStyle = () => {
           className="flex flex-col sm:flex-row md:h-[289px] space-y-5 sm:space-y-0 sm:space-x-5"
         >
           <DressStyleCard
-            title="Party"
+            title="/"
             url="/"
             className="md:max-w-[684px] h-[190px] bg-[url('/images/dress-style-3.png')]"
           />
           <DressStyleCard
-            title="Gym"
+            title="/"
             url="/"
             className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[url('/images/dress-style-4.png')]"
           />
