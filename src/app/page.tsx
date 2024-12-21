@@ -6,6 +6,7 @@ import TopSelling from "./component/TopSelling"
 import DressStyle from "./component/dressStyle";
 import DressStyleCard from "./component/dressStyleCard";
 import Review from "./component/review"
+import Footer from "./component/footer"
 
 
 
@@ -20,6 +21,7 @@ export default function Land() {
 <DressStyle />
 <DressStyleCard title={""} url={""} />
 <Review />
+<Footer />
   </div>  
   );
 }
