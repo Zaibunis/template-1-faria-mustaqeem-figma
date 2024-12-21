@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-    <span className="ml-3 text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
+    <span className=" text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
       <p className="mt-2 text-sm text-gray-500 mb-10">
       We have clothes that suits your style and which you&apos;re proud to wear. From women to men.
       </p>

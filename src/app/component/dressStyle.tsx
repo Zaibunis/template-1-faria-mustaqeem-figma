@@ -13,11 +13,11 @@ const DressStyle = () => {
           whileInView={{ y: "0", opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-        className="text-[32px] leading-[36px] md:text-5xl mb-8 md:mb-14 capitalize"
+        className="text-[32px] leading-[36px] font-extrabold text-black md:text-5xl mb-8 md:mb-14 capitalize"
             
           
         >
-          BROWSE BY dress STYLE
+          BROWSE BY DRESS STYLE
         </motion.h2>
         <motion.div
           initial={{ y: "100px", opacity: 0 }}

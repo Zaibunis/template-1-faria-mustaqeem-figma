@@ -15,7 +15,7 @@ const Review = () => {
     </div>
     <div className="flex flex-wrap -m-4">
       <div className="p-4 md:w-1/3">
-        <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+        <div className="flex rounded-lg h-full bg-white border-b-2 p-8 flex-col">
           <div className="flex items-center mb-3">
           <div className="flex space-x-1">
       {/* Repeat this SVG for the number of stars you want */}
@@ -232,11 +232,11 @@ const Review = () => {
     </div>
   </div>
   <div className='w-[1240px] h-[180px] bg-black ml-[50px] rounded-lg'>
-<span className='text-[#FFFFFF] text-3xl font-extrabold'>STAY UPTO DATE ABOUT<br /> OUR LATEST OFFERS</span>
+<span className='text-[#FFFFFF] text-3xl font-extrabold mt-[30px]'>STAY UPTO DATE ABOUT<br /> OUR LATEST OFFERS</span>
 <div className='flex'>
   <Image src={"/Frame (8).png"} width={24} height={24} alt=''/>
   </div>
- <div className='rounded-lg'>
+ <div className='rounded-lg ml-[40px]'>
   <Input type="email" placeholder="Enter your email address" className='w-[349px] h-[48px]'/>
   </div>
   </div>
