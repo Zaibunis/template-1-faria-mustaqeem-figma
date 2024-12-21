@@ -11,7 +11,7 @@ const Footer = () => {
       &ldquo;We have clothes that suit your style and that you&apos;re proud to wear—from women&apos;s to men&apos;s.&rdquo;
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-        <a className="text-gray-500">
+        <a className="text-white">
           <svg
             fill="currentColor"
             strokeLinecap="round"
@@ -75,11 +75,11 @@ const Footer = () => {
         </h2>
         <nav className="list-none mb-10">
           <li>
-            <a className="text-gray-600 hover:text-gray-800 mb-4">About          
+            <a className="text-gray-600 hover:text-gray-800 mb-10">About          
           </a>
           </li>
           <li>
-            <a className="text-gray-600 hover:text-gray-800 mb-4">Features </a>
+            <a className="text-gray-600 hover:text-gray-800 mb-10">Features </a>
           </li>
           <li>
             <a className="text-gray-600 hover:text-gray-800 mb-4">Works </a>

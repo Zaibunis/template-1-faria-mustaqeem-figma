@@ -1,4 +1,6 @@
 import React from 'react'
+import { Input } from "@/components/ui/input"
+import Image from 'next/image'
 
 const Review = () => {
   return (
@@ -231,6 +233,10 @@ const Review = () => {
   </div>
   <div className='w-[1240px] h-[180px] bg-black'>
 <span className='text-[#FFFFFF] text-3xl font-extrabold'>STAY UPTO DATE ABOUT<br /> OUR LATEST OFFERS</span>
+  </div>
+ <div className='rounded-lg'>
+  <Input type="email" placeholder="Enter your email address" />
+  <Image src={"/Frame (8).png"} width={24} height={24} alt=''/>
   </div>
 </section>
 
