@@ -46,6 +46,7 @@ export default function Hero() {
               </span>
             </div>
           </div>
+          </div>
   
           {/* Right Content */}
 <div className="lg:w-1/2 flex items-center justify-center relative">

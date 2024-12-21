@@ -229,6 +229,9 @@ const Review = () => {
       </div>
     </div>
   </div>
+  <div className='w-[1240px] h-[180px] bg-black'>
+<span className='text-[#FFFFFF] text-3xl'>STAY UPTO DATE ABOUT OUR LATEST OFFERS</span>
+  </div>
 </section>
 
     </div>
