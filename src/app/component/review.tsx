@@ -14,8 +14,8 @@ const Review = () => {
       </h1>
     </div>
     <div className="flex flex-wrap -m-4 ">
-      <div className="p-4 md:w-1/3">
-        <div className="flex rounded-lg h-full bg-white border-b-2 p-8 flex-col">
+      <div className="p-4 md:w-1/3 border-b-2">
+        <div className="flex rounded-lg h-full bg-white  p-8 flex-col">
           <div className="flex items-center mb-3">
           <div className="flex space-x-1">
       {/* Repeat this SVG for the number of stars you want */}
