@@ -1,7 +1,7 @@
 import React from "react";
 import * as motion from "framer-motion/client";
 import DressStyleCard from "./dressStyleCard";
-import Image from "next/image";
+
 
 const DressStyle = () => {
   return (
@@ -26,20 +26,13 @@ const DressStyle = () => {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="flex flex-col sm:flex-row md:h-[289px] space-y-4 sm:space-y-0 sm:space-x-5 mb-4 sm:mb-5"
         >
-          <span>
-           <Image 
-           src={"/Frame 61.png"}
-           width={407}
-           height={289}
-           alt=""
-           />
           
           <DressStyleCard
             title="Casual"
             url="/"
             className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[url('/images/Frame 61.png')]"
           />
-          </span>
+         
           <span>
           <DressStyleCard
             title="Formal"
