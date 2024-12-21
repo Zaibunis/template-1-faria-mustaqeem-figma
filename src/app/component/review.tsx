@@ -7,7 +7,7 @@ const Review = () => {
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       
-      <h1 className="text-[32px] text-black leading-[36px] md:text-5xl capitalize mr-auto">
+      <h1 className="text-[32px] text-black font-extrabold leading-[36px] md:text-5xl capitalize mr-auto">
         OUR HAPPY CUSTOMERS
       </h1>
     </div>
@@ -230,7 +230,7 @@ const Review = () => {
     </div>
   </div>
   <div className='w-[1240px] h-[180px] bg-black'>
-<span className='text-[#FFFFFF] text-3xl'>STAY UPTO DATE ABOUT OUR LATEST OFFERS</span>
+<span className='text-[#FFFFFF] text-3xl font-extrabold'>STAY UPTO DATE ABOUT<br /> OUR LATEST OFFERS</span>
   </div>
 </section>
 

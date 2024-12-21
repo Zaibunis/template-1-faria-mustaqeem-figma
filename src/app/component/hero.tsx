@@ -14,7 +14,7 @@ export default function Hero() {
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense of style.
             </p>
-            <div className="w-full sm:w-[284px] md:w-[284px] lg:w-[284px] h-[64px] bg-black text-white rounded-full mt-[20px] shadow-md flex justify-center items-center">
+            <div className="w-full sm:w-[284px] md:w-[284px] lg:w-[284px] h-[64px] bg-black text-white rounded-full mt-[20px] shadow-md flex justify-center items-center mb-[10px]">
                             <span className="text-lg font-medium mr-2">Shop Now</span>
                            
                         </div>

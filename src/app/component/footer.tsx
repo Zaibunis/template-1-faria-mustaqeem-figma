@@ -6,99 +6,9 @@ const Footer = () => {
       <footer className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-    <span className="ml-3 text-xl text-black">SHOP.CO</span>
+    <span className="ml-3 w-[167px] h-[23px] text-black font-extrabold mb-[10px]">SHOP.CO</span>
       <p className="mt-2 text-sm text-gray-500">
       &ldquo;We have clothes that suit your style and that you&apos;re proud to wear—from women&apos;s to men&apos;s.&rdquo;
-      </p>
-    </div>
-    <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
-        Company
-        </h2>
-        <nav className="list-none mb-10">
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">About          
-          </a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Features </a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Works </a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Career</a>
-          </li>
-        </nav>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
-        Help
-        </h2>
-        <nav className="list-none mb-10">
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Customer Support
-</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Delivery Details</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Terms & Conditions</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Privacy Policy</a>
-          </li>
-        </nav>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
-        FAQ
-        </h2>
-        <nav className="list-none mb-10">
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Account
-</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Manage Deliveries</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Orders</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Payments</a>
-          </li>
-        </nav>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
-        Resources
-        </h2>
-        <nav className="list-none mb-10">
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Free eBooks
-</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Development Tutorial</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">How to - Blog</a>
-          </li>
-          <li>
-            <a className="text-gray-600 hover:text-gray-800">Youtube Playlist</a>
-          </li>
-        </nav>
-      </div>
-    </div>
-  </div>
-  <div className="bg-gray-100">
-    <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p className="text-gray-500 text-sm text-center sm:text-left">
-      Shop.co © 2000-2023, All Rights Reserved
-        
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a className="text-gray-500">
@@ -157,6 +67,97 @@ const Footer = () => {
           </svg>
         </a>
       </span>
+    </div>
+    <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        Company
+        </h2>
+        <nav className="list-none mb-10">
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">About          
+          </a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Features </a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Works </a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Career</a>
+          </li>
+        </nav>
+      </div>
+      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        Help
+        </h2>
+        <nav className="list-none mb-10">
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Customer Support
+</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Delivery Details</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Terms & Conditions</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Privacy Policy</a>
+          </li>
+        </nav>
+      </div>
+      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        FAQ
+        </h2>
+        <nav className="list-none mb-10">
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Account
+</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Manage Deliveries</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Orders</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Payments</a>
+          </li>
+        </nav>
+      </div>
+      <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 className="title-font font-medium text-black tracking-widest text-sm mb-3">
+        Resources
+        </h2>
+        <nav className="list-none mb-10">
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Free eBooks
+</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Development Tutorial</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">How to - Blog</a>
+          </li>
+          <li>
+            <a className="text-gray-600 hover:text-gray-800 mb-4">Youtube Playlist</a>
+          </li>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div className="bg-gray-100">
+    <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p className="text-gray-500 text-sm text-center sm:text-left">
+      Shop.co © 2000-2023, All Rights Reserved
+        
+      </p>
+      
     </div>
   </div>
 </footer>
