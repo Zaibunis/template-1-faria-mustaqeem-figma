@@ -239,7 +239,6 @@ const Review = () => {
   </div>
  <div className='rounded-lg'>
   <Input type="email" placeholder="Enter your email address" className='w-[349px] h-[48px]'/>
- 
   </div>
 </section>
 
