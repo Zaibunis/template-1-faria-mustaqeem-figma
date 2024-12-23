@@ -324,7 +324,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
@@ -356,7 +356,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique<br/> and the fabric feels so comfortable. As a fellow<br/> designer, I appreciate the attention to detail. It's<br/> become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
@@ -384,7 +384,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique<br/> and the fabric feels so comfortable. As a fellow<br/> designer, I appreciate the attention to detail. It's<br/> become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
@@ -412,7 +412,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique<br/> and the fabric feels so comfortable. As a fellow<br/> designer, I appreciate the attention to detail. It's<br/> become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
@@ -440,7 +440,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique<br/> and the fabric feels so comfortable. As a fellow<br/> designer, I appreciate the attention to detail. It's<br/> become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
@@ -467,7 +467,7 @@ Write a Review
                   </h2>
                 
           <p className=" text-sm ">
-          "I absolutely love this t-shirt! The design is unique<br/> and the fabric feels so comfortable. As a fellow<br/> designer, I appreciate the attention to detail. It's<br/> become my favorite go-to shirt."
+          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
           </p>
           <p className=" text-sm mt-10">
           Posted on August 14, 2023
