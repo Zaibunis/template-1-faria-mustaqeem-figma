@@ -1,4 +1,5 @@
 import Image from "next/image"
+
 import Link from "next/link"
 import {
   NavigationMenu,
@@ -36,21 +37,27 @@ export default function Home(){
   {/* Navigation Links */}
   <nav>
     <ul className="flex items-center gap-x-12">
-      <li>
-        <Link href="/" className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
-        <NavigationMenu>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <NavigationMenuLink>Link</NavigationMenuLink>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>
+  
+    <li>
+  <Link href="/comp/mens-clothes"  className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
+  <Link href="/comp/casual"  className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
+   <NavigationMenu>
+                      <NavigationMenuList>
+                        <NavigationMenuItem>
+                          <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            <NavigationMenuLink>mens</NavigationMenuLink><br/>
+                            <NavigationMenuLink>casual</NavigationMenuLink>
+                          </NavigationMenuContent>
+                        </NavigationMenuItem>
+                      </NavigationMenuList>
+                    </NavigationMenu>
+                    
 
-        </Link>
-      </li>
+  </Link>
+  </Link>
+</li>
+
       <li>
         <Link href="/" className="hover:underline whitespace-nowrap">
           On Sale
@@ -62,7 +69,7 @@ export default function Home(){
         </Link>
       </li>
       <li>
-        <Link href="/" className="hover:underline whitespace-nowrap">
+        <Link href="/" className="hover:underline whitespace-nowrap mr-3">
           Brands
         </Link>
       </li>

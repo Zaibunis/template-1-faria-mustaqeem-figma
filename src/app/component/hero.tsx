@@ -52,7 +52,7 @@ export default function Hero() {
 <div className="lg:w-1/2 flex items-center justify-center relative">
   {/* Image */}
   <Image
-    src="/g.jpeg"
+    src="/Rectangle 2.png"
     alt="Fashion Style"
     width={390} // Increase width but respect parent space
     height={448} // Adjust proportionally
@@ -60,25 +60,26 @@ export default function Hero() {
     priority
   />
 
-<section className="relative md:px-4 min-h-[448px] md:min-h-[428px] bg-cover bg-top xl:bg-[center_top_-1.6rem] bg-no-repeat bg-[url('/images/header-res-homepage.png')] md:bg-[url('/images/header-homepage.png')]">
-          <Image
-            priority
-            src="/Vector (1).png"
-            height={104}
-            width={104}
-            alt="big star"
-            className="absolute right-7 xl:right-0 top-12 max-w-[76px] max-h-[76px] lg:max-w-24 lg:max-h-max-w-24 xl:max-w-[104px] xl:max-h-[104px] animate-[spin_4s_infinite]"
-          />
-          <Image
-            priority
-            src="/Vector.png"
-            height={56}
-            width={56}
-            alt="small star"
-            className="absolute left-7 md:left-0 top-36 sm:top-64 md:top-44 lg:top-56 max-w-11 max-h-11 md:max-w-14 md:max-h-14 animate-[spin_3s_infinite]"
-          />
-        </section>
-           
+ {/* Floating Elements as Images */}
+ <div className="absolute top-4 left-8 w-16 h-16 rounded-full shadow-lg">
+    <Image
+      src="/Vector (1).png" // Replace with the floating image path
+      alt="Floating Icon FN"
+      width={64} // Adjusted size (16x16 Tailwind unit in pixels)
+      height={64}
+      className="rounded-full object-cover"
+    />
+  </div>
+
+  <div className="absolute bottom-12 right-12 w-16 h-16 rounded-full shadow-lg">
+    <Image
+      src="/Vector.png" // Replace with the floating image path
+      alt="Floating Icon AS"
+      width={64}
+      height={64}
+      className="rounded-full object-cover"
+    />
+  </div>
           </div>
         </div>
       </section>
