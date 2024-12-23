@@ -23,6 +23,38 @@ import {
 
 
 const Page = () => {
+  const reviews = [
+    {
+      name: 'Samantha D.',
+      review: '"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It is become my favorite go-to shirt."',
+      date: 'August 14, 2023',
+    },
+    {
+      name: 'Ethan R.',
+      review: '"This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designers touch in every aspect of this shirt."',
+      date: 'Posted on August 16, 2023',
+    },
+    {
+      name: 'Liam K.',
+      review: '"This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designers skill. It is like wearing a piece of art that reflects my passion for both design and fashion."',
+      date: 'Posted on August 18, 2023',
+    },
+    {
+      name: 'Alex M.',
+      review: '"The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, Im quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me."',
+      date: 'Posted on August 15, 2023',
+    },
+    {
+      name: 'Olivia P.',
+      review: '"As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It is evident that the designer poured their creativity into making this t-shirt stand out."',
+      date: 'Posted on August 17, 2023',
+    },
+    {
+      name: 'Ava H.',
+      review: '"I am not just wearing a t-shirt; I am wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter."',
+      date: 'Posted on August 19, 2023',
+    },
+  ];
   return (
     <div>
       <header>
@@ -302,179 +334,105 @@ Write a Review
 
       
     
-    <div className="flex flex-wrap -m-4 ml-[70px]">
-      <div className="xl:w-1/3 md:w-1/2 p-4">
-        <div className="border border-gray-200 p-6 rounded-lg">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
+<div className="flex justify-between ml-[70px]">
+  {/* Left Column with 3 Reviews */}
+  <div className="w-full md:w-1/2 p-4">
+    <div className="flex flex-col space-y-4">
+      {reviews.slice(0, 3).map((review, index) => (
+        <div key={index} className="border border-gray-200 p-4 rounded-lg">
+          <div className="flex space-x-1 justify-start mb-4">
+            {/* Rating Stars */}
+            {[...Array(5)].map((_, index) => (
+              <svg
+                key={index}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-yellow-500"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              </svg>
+            ))}
+          </div>
+          <h2 className="text-black text-lg title-font font-bold mb-3 flex items-center">
+            {review.name}
+            <div className="ml-3 flex items-center space-x-2">
+              {/* Tick Mark (checkmark) SVG */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white bg-green-500 rounded-lg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </h2>
 
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
+          <p className="text-sm">
+            {review.review}
           </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
+          <p className="text-sm mt-8">Posted on {review.date}</p>
         </div>
-      </div>
-     
+      ))}
+    </div>
+  </div>
 
+  {/* Spacer to create space between left and right columns */}
+  <div className="w-8"></div> {/* Adjust width to change space between the columns */}
+
+  {/* Right Column with 3 Reviews */}
+  <div className="w-full md:w-1/2 p-4">
+    <div className="flex flex-col space-y-4">
+      {reviews.slice(3, 6).map((review, index) => (
+        <div key={index} className="border border-gray-200 p-4 rounded-lg">
+          <div className="flex space-x-1 justify-start mb-4">
+            {/* Rating Stars */}
+            {[...Array(5)].map((_, index) => (
+              <svg
+                key={index}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-yellow-500"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              </svg>
+            ))}
+          </div>
+          <h2 className="text-black text-lg title-font font-bold mb-3 flex items-center">
+            {review.name}
+            <div className="ml-3 flex items-center space-x-2">
+              {/* Tick Mark (checkmark) SVG */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white bg-green-500 rounded-lg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </h2>
+
+          <p className="text-sm">
+            {review.review}
+          </p>
+          <p className="text-sm mt-8">Posted on {review.date}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
         
-        
-   
-        <div className="border border-gray-200 p-6 rounded-lg">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
+<button className="w-[230px] h-[52px] border-2 border-gray-100 text-black text-sm ml-[600px] mt-[20px] rounded-full">
+  Load More Reviews
+</button>
 
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
-          </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
-        </div>
-      
-            
-        <div className="border border-gray-200 p-6 rounded-lg">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
-          </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
-        </div>
-        
-        
-        <div className="border border-gray-200 p-6 rounded-lg mb-[20px]">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
-          </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
-        </div>
-      
-
-        <div className="border border-gray-200 p-6 rounded-lg">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
-          </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
-        </div>
-      
-        <div className="border border-gray-200 p-6 rounded-lg">
-        <div className="flex space-x-1 justify-start mb-5">
-                    {/* Rating Stars */}
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h2 className="flex text-black text-lg title-font font-bold mb-3">
-                  Samantha D.
-                    <div className="flex items-center space-x-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white bg-green-500 rounded-lg ml-[10px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-
-                  </h2>
-                
-          <p className=" text-sm ">
-          &ldquo;I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.&rdquo;
-          </p>
-          <p className=" text-sm mt-10">
-          Posted on August 14, 2023
-          </p>
-        </div>
-        
-      <button className='w-[230px] h-[52px] border-b-2 text-black text-sm ml-[500px] mt-[20px] rounded-full'>Load More Reviews</button>
 
 
     <section className="py-10 bg-white">
@@ -610,7 +568,7 @@ Write a Review
 
 </div>
 </div>
-</div>   
+   
 
 
   )
