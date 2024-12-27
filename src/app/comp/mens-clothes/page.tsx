@@ -26,35 +26,36 @@ const Page = () => {
   const reviews = [
     {
       name: 'Samantha D.',
-      review: "g",
+      review: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&rsquo;s become my favorite go-to shirt.", // Fixed apostrophe
       date: 'August 14, 2023',
     },
     {
       name: 'Ethan R.',
-      review: "g",
+      review: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer&rsquo;s touch in every aspect of this shirt.", // Fixed apostrophe
       date: 'Posted on August 16, 2023',
     },
     {
       name: 'Liam K.',
-      review: "g",
+      review: "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer&rsquo;s skill. It&rsquo;s like wearing a piece of art that reflects my passion for both design and fashion.", // Fixed apostrophe
       date: 'Posted on August 18, 2023',
     },
     {
       name: 'Alex M.',
-      review: "g",
+      review: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I&rsquo;m quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.", // Fixed apostrophe
       date: 'Posted on August 15, 2023',
     },
     {
       name: 'Olivia P.',
-      review: "g",
+      review: "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It&rsquo;s evident that the designer poured their creativity into making this t-shirt stand out.", // Fixed apostrophe
       date: 'Posted on August 17, 2023',
     },
     {
       name: 'Ava H.',
-      review: "g",
+      review: "I am not just wearing a t-shirt; I am wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.", // No apostrophe issue here
       date: 'Posted on August 19, 2023',
     },
   ];
+  
   return (
     <div>
       <header>
