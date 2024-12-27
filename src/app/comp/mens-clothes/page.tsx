@@ -19,250 +19,234 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
-  import { Input } from "@/components/ui/input";
-
-
-const Page = () => {
-  const reviews = [
-    {
-      name: 'Samantha D.',
-      review: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It is become my favorite go-to shirt.",
-      date: 'August 14, 2023',
-    },
-    {
-      name: 'Ethan R.',
-      review: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designers touch in every aspect of this shirt.",
-      date: 'Posted on August 16, 2023',
-    },
-    {
-      name: 'Liam K.',
-      review: "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designers skill. It is like wearing a piece of art that reflects my passion for both design and fashion.",
-      date: 'Posted on August 18, 2023',
-    },
-    {
-      name: 'Alex M.',
-      review: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, Im quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
-      date: 'Posted on August 15, 2023',
-    },
-    {
-      name: 'Olivia P.',
-      review: "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It is evident that the designer poured their creativity into making this t-shirt stand out.",
-      date: 'Posted on August 17, 2023',
-    },
-    {
-      name: 'Ava H.',
-      review: "I am not just wearing a t-shirt; I am wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
-      date: 'Posted on August 19, 2023',
-    },
-  ];
-  return (
-    <div>
-      <header>
-        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[55px]">
-          {/* Text and Sign-Up Link */}
-          <div className="flex items-center space-x-4">
-            <span className="text-center ml-[400px]">Sign up and get 20% off your first order.</span>
-            <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
-              <span className="mr-2">Sign Up Now</span>
-              <Image src="/Vector (2).png" alt="" width={20} height={20} className="ml-[300px]"/>
+  import { Input } from "@/components/ui/input";const Page = () => {
+    const reviews = [
+      {
+        name: 'Samantha D.',
+        review: "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It is become my favorite go-to shirt.",
+        date: 'August 14, 2023',
+      },
+      {
+        name: 'Ethan R.',
+        review: "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designers touch in every aspect of this shirt.",
+        date: 'Posted on August 16, 2023',
+      },
+      {
+        name: 'Liam K.',
+        review: "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designers skill. It is like wearing a piece of art that reflects my passion for both design and fashion.",
+        date: 'Posted on August 18, 2023',
+      },
+      {
+        name: 'Alex M.',
+        review: "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, Im quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        date: 'Posted on August 15, 2023',
+      },
+      {
+        name: 'Olivia P.',
+        review: "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It is evident that the designer poured their creativity into making this t-shirt stand out.",
+        date: 'Posted on August 17, 2023',
+      },
+      {
+        name: 'Ava H.',
+        review: "I am not just wearing a t-shirt; I am wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
+        date: 'Posted on August 19, 2023',
+      },
+    ];
+    return (
+      <div>
+        <header>
+          <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[55px]">
+            {/* Text and Sign-Up Link */}
+            <div className="flex items-center space-x-4">
+              <span className="text-center ml-[400px]">Sign up and get 20% off your first order.</span>
+              <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
+                <span className="mr-2">Sign Up Now</span>
+                <Image src="/Vector (2).png" alt="" width={20} height={20} className="ml-[300px]"/>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-between px-[100px] py-4 bg-white border-b border-gray-300"> {/* Added border here */}
-          {/* Logo */}
-          <div>
-            <Image src="/SHOP.CO.png" alt="Logo" width={141} height={22} />
-          </div>
-
-          {/* Navigation Links */}
-          <nav>
-            <ul className="flex items-center gap-x-12">
-              <li>
-                <Link href="/" className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <NavigationMenuLink></NavigationMenuLink>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="hover:underline whitespace-nowrap">
-                  On Sale
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="hover:underline whitespace-nowrap">
-                  New Arrivals
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="hover:underline whitespace-nowrap mr-3">
-                  Brands
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Right-Side Elements */}
-          <div className="flex items-center gap-x-6">
-            {/* Search Bar */}
-            <div className="relative">
-              <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
+          <div className="flex items-center justify-between px-[100px] py-4 bg-white border-b border-gray-300"> {/* Added border here */}
+            {/* Logo */}
+            <div>
+              <Image src="/SHOP.CO.png" alt="Logo" width={141} height={22} />
             </div>
-
-            {/* Cart Icon */}
-            <Image
-              src="/Frame (3).png"
-              alt="Cart"
-              width={24}
-              height={24}
-              className="cursor-pointer"
-            />
-
-            {/* Profile Icon */}
-            <Image
-              src="/Frame (4).png"
-              alt="Profile"
-              width={24}
-              height={24}
-              className="cursor-pointer"
-            />
-          </div>
-        </div>
-      </header>
-
-      {/* Breadcrumb Section */}
-      <Breadcrumb className='mt-5 ml-[95px]'>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Shop</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Men</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>T-shirts</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-
-      <div className="flex items-start space-x-6 ml-[100px]"> 
-
-  <div className="flex flex-col mt-[30px] gap-4">
-    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
-      <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
-    </div>
-    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
-      <Image src="/image 5.png" width={152} height={168}  alt="Thumbnail 2" />
-    </div>
-    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
-      <Image src="/image 6.png" width={152} height={167}  alt="Thumbnail 3"/>
-    </div>
-  </div>
-
- 
-  <section className="text-gray-600 body-font overflow-hidden flex-1">
-    <div className="container px-5 py-5 mx-auto"> 
-      <div className="lg:w-full mx-auto flex flex-wrap">
-        <Image
-          alt="ecommerce"
-          width={444}
-          height={530}
-          className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-          src="/image 1.png"
-        />
-        <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h1 className="text-black text-3xl title-font font-extrabold mb-1">
-            One Life Graphic T-shirt
-          </h1>
-          <div className="flex flex-col mb-4">
-            <div className="flex items-center mb-2">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <span className="text-black text-sm ml-[9px]">4.5/</span>
-              <span className="text-gray-500 text-sm">5</span>
-            </div>
-
-            <div className="flex items-center gap-2 text-gray-500">
-              <span className="font-bold text-black text-2xl">$260</span>
-              <span className="line-through text-2xl ml-2">$300</span>
-              <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
-                -40%
-              </span>
+  
+            {/* Navigation Links */}
+            <nav>
+              <ul className="flex items-center gap-x-12">
+                <li>
+                  <Link href="/" className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
+                    <NavigationMenu>
+                      <NavigationMenuList>
+                        <NavigationMenuItem>
+                          <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            <NavigationMenuLink></NavigationMenuLink>
+                          </NavigationMenuContent>
+                        </NavigationMenuItem>
+                      </NavigationMenuList>
+                    </NavigationMenu>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:underline whitespace-nowrap">
+                    On Sale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:underline whitespace-nowrap">
+                    New Arrivals
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:underline whitespace-nowrap mr-3">
+                    Brands
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+  
+            {/* Right-Side Elements */}
+            <div className="flex items-center gap-x-6">
+              {/* Search Bar */}
+              <div className="relative">
+                <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
+              </div>
+  
+              {/* Cart Icon */}
+              <Image
+                src="/Frame (3).png"
+                alt="Cart"
+                width={24}
+                height={24}
+                className="cursor-pointer"
+              />
+  
+              {/* Profile Icon */}
+              <Image
+                src="/Frame (4).png"
+                alt="Profile"
+                width={24}
+                height={24}
+                className="cursor-pointer"
+              />
             </div>
           </div>
-
-          <p className="mb-5 text-sm whitespace-nowrap">
-            This graphic t-shirt which is perfect for any occasion. Crafted from a soft and
-            <br />
-            breathable fabric, it offers superior comfort and style.
-          </p>
+        </header>
+  
+        {/* Breadcrumb Section */}
+        <Breadcrumb className='mt-5 ml-[95px]'>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/components">Shop</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/components">Men</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/components">T-shirts</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+  
+        <div className="flex items-start space-x-6 ml-[100px]"> 
+  
+          <div className="flex flex-col mt-[30px] gap-4">
+            <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+              <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
+            </div>
+            <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+              <Image src="/image 5.png" width={152} height={168}  alt="Thumbnail 2" />
+            </div>
+            <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+              <Image src="/image 6.png" width={152} height={167}  alt="Thumbnail 3"/>
+            </div>
+          </div>
+  
+          <section className="text-gray-600 body-font overflow-hidden flex-1">
+            <div className="container px-5 py-5 mx-auto"> 
+              <div className="lg:w-full mx-auto flex flex-wrap">
+                <Image
+                  alt="ecommerce"
+                  width={444}
+                  height={530}
+                  className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                  src="/image 1.png"
+                />
+                <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                  <h1 className="text-black text-3xl title-font font-extrabold mb-1">
+                    One Life Graphic T-shirt
+                  </h1>
+                  <div className="flex flex-col mb-4">
+                    <div className="flex items-center mb-2">
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-[24.71px] h-[24.71px] text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-[24.71px] h-[24.71px] text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-[24.71px] h-[24.71px] text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-[24.71px] h-[24.71px] text-yellow-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <span className="text-black text-sm ml-[9px]">4.5/</span>
+                      <span className="text-gray-500 text-sm">5</span>
+                    </div>
+  
+                    <div className="flex items-center gap-2 text-gray-500">
+                      <span className="font-bold text-black text-2xl">$260</span>
+                      <span className="line-through text-2xl ml-2">$300</span>
+                      <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
+                        -40%
+                      </span>
+                    </div>
+                  </div>
+  
+                  <p className="mb-5 text-sm whitespace-nowrap">
+                    This graphic t-shirt which is perfect for any occasion. Crafted from a soft and
+                    <br />
+                    breathable fabric, it offers superior comfort and style.
+                  </p>
 
           {/* Color Selection */}
           <div className="mb-4">
