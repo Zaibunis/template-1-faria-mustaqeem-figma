@@ -270,8 +270,10 @@ const Page = () => {
             <div className="flex space-x-3 mt-2 border-b-2 mb-5">
               {/* First color with tick */}
               <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
-                <img
+                <Image
                   src="/Frame (14).png" 
+                  width={12}
+                  height={12}
                   alt="Selected"
                   className="w-4 h-4 absolute top-2 left-2"
                 />
