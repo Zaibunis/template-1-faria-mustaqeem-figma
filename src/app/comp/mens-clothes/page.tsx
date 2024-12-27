@@ -64,7 +64,7 @@ const Page = () => {
             <span className="text-center ml-[400px]">Sign up and get 20% off your first order.</span>
             <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
               <span className="mr-2">Sign Up Now</span>
-              <Image src="/Vctor (2).png" alt="" width={20} height={20} className="ml-[300px]"/>
+              <Image src="/Vector (2).png" alt="" width={20} height={20} className="ml-[300px]"/>
             </div>
           </div>
         </div>
