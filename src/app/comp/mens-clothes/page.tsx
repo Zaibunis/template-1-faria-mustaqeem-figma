@@ -159,150 +159,174 @@ const Page = () => {
       </Breadcrumb>
 
 
-      <section className="text-gray-600 body-font overflow-hidden">
-  <div className="container px-5 py-24 mx-auto">
-    <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <Image
-        alt="ecommerce"
-        className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-        src="/image 1.png"
-        width={444}
-        height={300}
-      />
-      <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-      
-        <h1 className="text-black text-3xl title-font font-extrabold mb-1">
-        One Life Graphic T-shirt
-        </h1>
-        <div className="flex mb-4">
-          <span className="flex items-center">
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-[24.71px] h-[24.71px] text-yellow-500"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-[24.71px] h-[24.71px] text-yellow-500"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-[24.71px] h-[24.71px] text-yellow-500"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-[24.71px] h-[24.71px] text-yellow-500"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-[24.71px] h-[24.71px] text-yellow-500"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <div className='my-1'>
-  <span className="text-black text-sm ml-[9px]">4.5/</span>
-  <span className="text-gray-500 text-sm">5</span><br />
-</div>
-<div className="flex justify-center gap-2 text-gray-500">
-  <div className="flex items-center">
-    <span className="font-bold text-black text-2xl">$260</span>
-    <span className="line-through text-2xl ml-2">$300</span>
+      <div className="flex items-start space-x-6 ml-[100px]"> 
+
+  <div className="flex flex-col mt-[30px] gap-4">
+    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+      <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
+    </div>
+    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+      <Image src="/image 5.png" width={152} height={168}  alt="Thumbnail 2" />
+    </div>
+    <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
+      <Image src="/image 6.png" width={152} height={167}  alt="Thumbnail 3"/>
+    </div>
   </div>
-  <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
-    -40%
-  </span>
-</div>
-</span>
-          
-        </div>
-        <p className="mb-5 text-sm whitespace-nowrap">
-  This graphic t-shirt which is perfect for any occasion. Crafted from a soft and
-  <br />
-  breathable fabric, it offers superior comfort and style.
-</p>
+
+ 
+  <section className="text-gray-600 body-font overflow-hidden flex-1">
+    <div className="container px-5 py-5 mx-auto"> 
+      <div className="lg:w-full mx-auto flex flex-wrap">
+        <Image
+          alt="ecommerce"
+          width={444}
+          height={530}
+          className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+          src="/image 1.png"
+        />
+        <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h1 className="text-black text-3xl title-font font-extrabold mb-1">
+            One Life Graphic T-shirt
+          </h1>
+          <div className="flex flex-col mb-4">
+            <div className="flex items-center mb-2">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                className="w-[24.71px] h-[24.71px] text-yellow-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                className="w-[24.71px] h-[24.71px] text-yellow-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                className="w-[24.71px] h-[24.71px] text-yellow-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                className="w-[24.71px] h-[24.71px] text-yellow-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                className="w-[24.71px] h-[24.71px] text-yellow-500"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <span className="text-black text-sm ml-[9px]">4.5/</span>
+              <span className="text-gray-500 text-sm">5</span>
+            </div>
+
+            <div className="flex items-center gap-2 text-gray-500">
+              <span className="font-bold text-black text-2xl">$260</span>
+              <span className="line-through text-2xl ml-2">$300</span>
+              <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
+                -40%
+              </span>
+            </div>
+          </div>
+
+          <p className="mb-5 text-sm whitespace-nowrap">
+            This graphic t-shirt which is perfect for any occasion. Crafted from a soft and
+            <br />
+            breathable fabric, it offers superior comfort and style.
+          </p>
 
           {/* Color Selection */}
           <div className="mb-4">
-              <h2 className="text-sm font-semibold text-gray-600">Select Colors</h2>
-              <div className="flex space-x-3 mt-2 border-b-2 mb-5">
-                <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5"></button>
-                <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
-                <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
-              </div>
+            <h2 className="text-sm font-medium text-gray-600">Select Colors</h2>
+            <div className="flex space-x-3 mt-2 border-b-2 mb-5">
+              {/* First color with tick */}
+              <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
+                <img
+                  src="/Frame (14).png" 
+                  alt="Selected"
+                  className="w-4 h-4 absolute top-2 left-2"
+                />
+              </button>
+              {/* Other colors */}
+              <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
+              <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
             </div>
-  
-            {/* Size Selection */}
-            <div className="mb-4">
-  <h2 className="text-sm font-semibold text-gray-600">Choose Size</h2>
-  <div className="flex space-x-3 mt-2 border-b-2 mb-5">
-    <span className='bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
-      Small
-    </span>
-    <span className='bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
-      Medium
-    </span>
-    <span className='bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
-      Large
-    </span>
-    <span className='bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5'>
-      X-Large
-    </span>
-  </div>
-</div>
-  
-            {/* Quantity Selector */}
-            <div className="flex items-center mb-6 space-x-4">
-  <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
-    <button className="text-lg font-semibold text-black">-</button>
-    <span className="text-sm text-center text-black">1</span>
-    <button className="text-lg font-semibold text-black">+</button>
-  </div>
-  <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-[400px] h-[52px] flex items-center justify-center">
-    Add to Cart
-  </button>
-</div>
+          </div>
+
+          {/* Size Selection */}
+          <div className="mb-4">
+            <h2 className="text-sm font-medium text-gray-600">Choose Size</h2>
+            <div className="flex space-x-3 mt-2 border-b-2 mb-5">
+              <span className='bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+                Small
+              </span>
+              <span className='bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+                Medium
+              </span>
+              <span className='bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+                Large
+              </span>
+              <span className='bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5'>
+                X-Large
+              </span>
+            </div>
+          </div>
+
+          {/* Quantity Selector */}
+          <div className="flex items-center mb-6 space-x-4">
+            <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
+              <button className="text-lg font-semibold text-black">-</button>
+              <span className="text-sm text-center text-black">1</span>
+              <button className="text-lg font-semibold text-black">+</button>
+            </div>
+            <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-[400px] h-[52px] flex items-center justify-center">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    </section>
-
-    <div className='flex gap-4 mb-[25px]'>
-  <span className='text-gray-500 border-b-2 mb-3 ml-[200px]'>Product Details</span>
-  <span className='text-black border-black mb-3 ml-[300px]'>Rating & Reviews</span>
-  <span className='text-gray-500 border-b-2 mb-3 ml-[300px]'>FAQs</span>
+  </section>
 </div>
+    <div className='flex flex-col mb-[25px]'>
+ 
+  <div className='flex items-center justify-between mt-[20px]'>
+    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center'>Product Details</span>
+    <span className='text-black border-b-2 border-black flex-1 text-center'>Rating & Reviews</span>
+    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center'>FAQs</span>
+  </div>
+</div>
+
+
 
 
 <div className='ml-[70px] flex'>
@@ -429,7 +453,7 @@ Write a Review
   </div>
 </div>
         
-<button className="w-[230px] h-[52px] border-2 border-gray-100 text-black text-sm ml-[600px] mt-[20px] rounded-full">
+<button className="w-[230px] font-medium h-[52px] border-2 border-gray-100 text-black text-sm ml-[600px] mt-[20px] rounded-full">
   Load More Reviews
 </button>
 
@@ -446,7 +470,7 @@ Write a Review
         {/* Product Card 1 */}
         <div className="text-center">
           <Image
-            src="/Frame 32.png"
+            src="/Frame 32 (3).png"
             alt="T-shirt with Tape Details"
             width={200}
             height={200}
@@ -469,13 +493,13 @@ Write a Review
         {/* Product Card 2 */}
         <div className="text-center">
           <Image
-            src="/Frame 33 (5).png"
+            src="/Frame 33 (7).png"
             alt="Skinny Fit Jeans"
             width={200}
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black ">Skinny Fit Jeans</p>
+          <p className="mt-4 font-bold text-lg text-black ">Gradient Graphic T-shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">3.5/</span>
             <span className="text-gray-500">5</span>
@@ -489,15 +513,15 @@ Write a Review
         {/* Product Card 3 */}
         <div className="text-center">
           <Image
-            src="/Frame 34.png"
+            src="/Frame 34 (2).png"
             alt="Checkered Shirt"
             width={200}
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black">Checkered Shirt</p>
+          <p className="mt-4 font-bold text-lg text-black">Polo with Tipping Details</p>
           <div className="text-yellow-400 text-sm my-1">
-            ★★★★☆ <span className="text-black text-sm">4.4/</span>
+            ★★★★☆ <span className="text-black text-sm">4.5/</span>
             <span className="text-gray-500">5</span>
           </div>
           <p className="font-bold text-black">$180</p>
@@ -506,13 +530,13 @@ Write a Review
         {/* Product Card 4 */}
         <div className="text-center">
           <Image
-            src="/Frame 38.png"
+            src="/Frame 38 (2).png"
             alt="Sleeve Striped T-shirt"
             width={200}
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black">Sleeve Striped T-shirt</p>
+          <p className="mt-4 font-bold text-lg text-black">Black Striped T-shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">5.0/</span>
             <span className="text-gray-500">5</span>
@@ -528,44 +552,128 @@ Write a Review
       </div>
 
     
-      {/* Bottom Border */}
-      <div className="border-b border-gray-300 mt-10 mx-4 md:mx-8"></div>
+    
 
     </section>
+    <div>
+      {/* Newsletter Signup Section */}
+      <div className="mb-[1px] w-full mr-[50px] bg-black rounded-lg py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
+        {/* Text Section */}
+        <div className="text-left text-white mb-4 md:mb-0">
+          <span className="text-3xl font-extrabold block mb-4">
+            STAY UP TO DATE ABOUT <br /> OUR LATEST OFFERS
+          </span>
+        </div>
 
-   {/* Newsletter Signup */}
-   <div className=" mb-[30px] w-full mr-[50px] bg-black rounded-lg py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
-  {/* Text Section */}
-  <div className="text-left text-white mb-4 md:mb-0">
-    <span className="text-3xl font-extrabold block mb-4">
-      STAY UP TO DATE ABOUT <br /> OUR LATEST OFFERS
-    </span>
-  </div>
+        {/* Right Section */}
+        <div className="flex flex-col items-end space-y-4 w-full md:w-auto">
+          {/* Email Input Section */}
+          <div className="relative w-full md:w-[349px]">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <Image src="/Frame (8).png" width={24} height={24} alt="Newsletter Icon" />
+            </div>
+            <Input
+              type="email"
+              placeholder="Enter your email address"
+              className="w-full h-[48px] pl-12 rounded-lg border-none"
+            />
+          </div>
 
-  {/* Right Section */}
-  <div className="flex flex-col items-end space-y-4 w-full md:w-auto">
-    {/* Email Input Section */}
-    <div className="relative w-full md:w-[349px]">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-        <Image src="/Frame (8).png" width={24} height={24} alt="Newsletter Icon" />
+          {/* Box Section */}
+          <div className="relative w-full md:w-[349px] h-[48px] bg-white rounded-lg flex items-center pl-3">
+            <span className="ml-12 text-black font-medium">
+              Subscribe to Newsletter
+            </span>
+          </div>
+        </div>
       </div>
-      <Input
-        type="email"
-        placeholder="Enter your email address"
-        className="w-full h-[48px] pl-12 rounded-lg border-none"
-      />
-    </div>
-    
-    {/* Box Section */}
-    <div className="relative w-full md:w-[349px] h-[48px] bg-white rounded-lg flex items-center pl-3">
-      <span className="ml-12 text-black font-medium">
-        Subscribe to Newsletter
-      </span>
-    </div>
-  </div>
 
+      {/* Footer Section */}
+      <footer className="text-gray-600 body-font bg-gray-100">
+        <div className="container border-b-2 border-gray-300 px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <span className="text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
+            <p className="mt-2 text-sm text-gray-500 mb-10">
+              We have clothes that suits your style and which you're proud to wear. From women to men.
+            </p>
+          </div>
 
+          {/* Footer Links Section */}
+          <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            {/* Company Links */}
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
+                Company
+              </h2>
+              <nav className="list-none mb-10">
+                <li className="text-gray-600 hover:text-gray-800 mb-4">About</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Features</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Works</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Career</li>
+              </nav>
+            </div>
 
+            {/* Help Links */}
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
+                Help
+              </h2>
+              <nav className="list-none mb-10">
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Customer Support</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Delivery Details</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Terms & Conditions</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Privacy Policy</li>
+              </nav>
+            </div>
+
+            {/* FAQ Links */}
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
+                FAQ
+              </h2>
+              <nav className="list-none mb-10">
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Account</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Manage Deliveries</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Orders</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Payments</li>
+              </nav>
+            </div>
+
+            {/* Resources Links */}
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-black tracking-widest text-lg mb-3">
+                Resources
+              </h2>
+              <nav className="list-none mb-10 ">
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Free eBooks</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Development Tutorial</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">How to - Blog</li>
+                <li className="text-gray-600 hover:text-gray-800 mb-4">Youtube Playlist</li>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom Section */}
+        <div className="bg-gray-100">
+          <div className="container mx-auto py-4 px-5 flex flex-wrap items-center justify-between">
+            {/* Footer Text */}
+            <p className="text-gray-500 text-sm text-center sm:text-left">
+              Shop.co © 2000-2023, All Rights Reserved
+            </p>
+
+            {/* Footer Images */}
+            <div className="flex space-x-4 mt-2 sm:mt-0">
+              <Image src="/Badge.png" width={46.61} height={30.03} alt="Badge 1" />
+              <Image src="/Badge (1).png" width={46.61} height={30.03} alt="Badge 2" />
+              <Image src="/Badge (2).png" width={46.61} height={30.03} alt="Badge 3" />
+              <Image src="/Badge (3).png" width={46.61} height={30.03} alt="Badge 4" />
+              <Image src="/Badge (4).png" width={46.61} height={30.03} alt="Badge 5" />
+            </div>
+          </div>
+        </div>
+      </footer>
+   
 </div>
 </div>
    
