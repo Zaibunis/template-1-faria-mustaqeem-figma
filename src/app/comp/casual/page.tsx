@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 
 
 const Filters = () => {
-  const colors = [ "green", "red" , "yellow", "orange" , "lightblue" , , "darkblue" ,  "purple", "pink",  "white"  , "black"];
+  const colors = [ "green", "red" , "yellow", "orange" , "lightblue"  , "darkblue" ,  "purple", "pink",  "white"  , "black"];
   const sizes = ["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"];
   const styles = ["Casual", "Formal" , "Party" , "Gym"];
 
