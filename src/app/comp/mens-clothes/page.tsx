@@ -3,12 +3,12 @@ import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
+
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
+ 
 } from "@/components/ui/navigation-menu"
 import {
     Breadcrumb,
@@ -261,7 +261,7 @@ const Page = () => {
           <p className="mb-5 text-sm whitespace-nowrap">
             This graphic t-shirt which is perfect for any occasion. Crafted from a soft and
             <br />
-            breathable fabric, it offers superior comfort and style.
+            breathable fabric it offers superior comfort and style.
           </p>
 
           {/* Color Selection */}
@@ -288,16 +288,16 @@ const Page = () => {
           <div className="mb-4">
             <h2 className="text-sm font-medium text-gray-600">Choose Size</h2>
             <div className="flex space-x-3 mt-2 border-b-2 mb-5">
-              <span className='bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+              <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
                 Small
               </span>
-              <span className='bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+              <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
                 Medium
               </span>
-              <span className='bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5'>
+              <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
                 Large
               </span>
-              <span className='bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5'>
+              <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
                 X-Large
               </span>
             </div>
@@ -407,7 +407,7 @@ Write a Review
   </div>
 
   {/* Spacer to create space between left and right columns */}
-  <div className="w-8"></div> {/* Adjust width to change space between the columns */}
+  <div className="w-8"></div> 
 
   {/* Right Column with 3 Reviews */}
   <div className="w-full md:w-1/2 p-4">
