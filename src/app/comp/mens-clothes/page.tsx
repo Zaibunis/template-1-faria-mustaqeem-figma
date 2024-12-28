@@ -187,7 +187,7 @@ const Page = () => {
         />
         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
           <h1 className="text-black text-3xl title-font font-extrabold mb-1">
-            One Life Graphic T-shirt
+            One Life Graphic T&#39;shirt
           </h1>
           <div className="flex flex-col mb-4">
             <div className="flex items-center mb-2">
@@ -502,7 +502,7 @@ Write a Review
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black ">Gradient Graphic T-shirt</p>
+          <p className="mt-4 font-bold text-lg text-black ">Gradient Graphic  T&#39;shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">3.5/</span>
             <span className="text-gray-500">5</span>
@@ -539,7 +539,7 @@ Write a Review
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black">Black Striped T-shirt</p>
+          <p className="mt-4 font-bold text-lg text-black">Black Striped  T&#39;shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">5.0/</span>
             <span className="text-gray-500">5</span>
@@ -597,7 +597,8 @@ Write a Review
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <span className="text-3xl text-black font-extrabold mb-[10px]">SHOP.CO</span>
             <p className="mt-2 text-sm text-gray-500 mb-10">
-              We have clothes that suits your style and which you're proud to wear. From women to men.
+            We have clothes that suit your style and which you&#39;re proud to wear. From women to men.
+
             </p>
           </div>
 
