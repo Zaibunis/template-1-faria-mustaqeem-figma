@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -19,9 +21,18 @@ import {
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
   import { Input } from "@/components/ui/input";
+  import { useState } from "react"
 
 
 const Page = () => {
+
+ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Toggle the mobile menu visibility
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   const reviews = [
     {
       name: 'Samantha D.',
@@ -58,39 +69,51 @@ const Page = () => {
   
   return (
     <div>
+      {/* Sticky Announcement Section */}
       <header>
-        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[55px]">
+        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
           {/* Text and Sign-Up Link */}
-          <div className="flex items-center space-x-4">
-            <span className="text-center ml-[400px]">Sign up and get 20% off your first order.</span>
-            <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
-              <span className="mr-2">Sign Up Now</span>
-              <Image src="/Vector (2).png" alt="" width={20} height={20} className="ml-[300px]"/>
+          <div className="flex items-center justify-between w-full sm:w-auto">
+            <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
+              Sign up and get 20% off your first order.
+            </span>
+            <div className="flex items-center justify-center sm:justify-start mt-2 sm:mt-0">
+              <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
+                <span className="mr-2">Sign Up Now</span>
+                <Image
+                  src="/Vector (2).png"
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="ml-2"
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between px-[100px] py-4 bg-white border-b border-gray-300"> {/* Added border here */}
+
+        {/* Navigation Section */}
+        <div className="flex items-center justify-between px-[20px] sm:px-[100px] py-4 bg-white">
           {/* Logo */}
           <div>
             <Image src="/SHOP.CO.png" alt="Logo" width={141} height={22} />
           </div>
 
-          {/* Navigation Links */}
-          <nav>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden sm:block">
             <ul className="flex items-center gap-x-12">
               <li>
-                <Link href="/" className="hover:underline flex items-center gap-x-1 whitespace-nowrap">
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <NavigationMenuLink></NavigationMenuLink>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </Link>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <NavigationMenuLink>mens</NavigationMenuLink><br />
+                        <NavigationMenuLink>casual</NavigationMenuLink>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
               </li>
               <li>
                 <Link href="/" className="hover:underline whitespace-nowrap">
@@ -135,48 +158,86 @@ const Page = () => {
               className="cursor-pointer"
             />
           </div>
+
+          {/* Hamburger Icon for Mobile */}
+          <div className="md:hidden flex items-center ml-4">
+            <button onClick={toggleMenu}>
+              <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+                <div className="w-6 h-1 bg-black"></div>
+                <div className="w-6 h-1 bg-black"></div>
+                <div className="w-6 h-1 bg-black"></div>
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Breadcrumb Section */}
-      <Breadcrumb className='mt-5 ml-[95px]'>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Shop</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Men</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>T-shirts</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden bg-white px-[20px] py-4">
+          <ul>
+            <li className="py-2">
+              <Link href="/comp/mens-clothes" className="block hover:underline">
+                Shop
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                On Sale
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                New Arrivals
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                Brands
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    {/* Breadcrumb Section */}
+<Breadcrumb className='mt-5 ml-[95px]'>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Shop</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Men</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>T-shirts</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
 
+<div className="flex flex-wrap items-start gap-6 ml-[100px]">
 
-      <div className="flex items-start space-x-6 ml-[100px]"> 
-
+  {/* Thumbnail Images */}
   <div className="flex flex-col mt-[30px] gap-4">
     <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
       <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
     </div>
     <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
-      <Image src="/image 5.png" width={152} height={168}  alt="Thumbnail 2" />
+      <Image src="/image 5.png" width={152} height={168} alt="Thumbnail 2" />
     </div>
     <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
-      <Image src="/image 6.png" width={152} height={167}  alt="Thumbnail 3"/>
+      <Image src="/image 6.png" width={152} height={167} alt="Thumbnail 3" />
     </div>
   </div>
 
- 
+  {/* Product Details Section */}
   <section className="text-gray-600 body-font overflow-hidden flex-1">
-    <div className="container px-5 py-5 mx-auto"> 
+    <div className="container px-5 py-5 mx-auto">
       <div className="lg:w-full mx-auto flex flex-wrap">
         <Image
           alt="ecommerce"
@@ -187,69 +248,31 @@ const Page = () => {
         />
         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
           <h1 className="text-black text-3xl title-font font-extrabold mb-1">
-            One Life Graphic T&#39;shirt
+            One Life Graphic T-shirt
           </h1>
+
+          {/* Rating Section */}
           <div className="flex flex-col mb-4">
             <div className="flex items-center mb-2">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-[24.71px] h-[24.71px] text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
+              {[...Array(5)].map((_, index) => (
+                <svg
+                  key={index}
+                  fill="currentColor"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  className="w-[24.71px] h-[24.71px] text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              ))}
               <span className="text-black text-sm ml-[9px]">4.5/</span>
               <span className="text-gray-500 text-sm">5</span>
             </div>
 
+            {/* Pricing Section */}
             <div className="flex items-center gap-2 text-gray-500">
               <span className="font-bold text-black text-2xl">$260</span>
               <span className="line-through text-2xl ml-2">$300</span>
@@ -259,9 +282,9 @@ const Page = () => {
             </div>
           </div>
 
+          {/* Product Description */}
           <p className="mb-5 text-sm whitespace-nowrap">
-            This graphic t&#39;shirt which is perfect for any occasion. Crafted from a soft and
-            <br />
+            This graphic t-shirt is perfect for any occasion. Crafted from a soft and
             breathable fabric, it offers superior comfort and style.
           </p>
 
@@ -272,7 +295,7 @@ const Page = () => {
               {/* First color with tick */}
               <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
                 <Image
-                  src="/Frame (14).png" 
+                  src="/Frame (14).png"
                   width={12}
                   height={12}
                   alt="Selected"
@@ -311,7 +334,7 @@ const Page = () => {
               <span className="text-sm text-center text-black">1</span>
               <button className="text-lg font-semibold text-black">+</button>
             </div>
-            <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-[400px] h-[52px] flex items-center justify-center">
+            <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
               Add to Cart
             </button>
           </div>
@@ -320,8 +343,8 @@ const Page = () => {
     </div>
   </section>
 </div>
-    <div className='flex flex-col mb-[25px]'>
- 
+
+<div className='flex flex-col mb-[25px]'>
   <div className='flex items-center justify-between mt-[20px]'>
     <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center'>Product Details</span>
     <span className='text-black border-b-2 border-black flex-1 text-center'>Rating & Reviews</span>
@@ -329,39 +352,33 @@ const Page = () => {
   </div>
 </div>
 
-
-
-
-<div className='ml-[70px] flex'>
+{/* Reviews Section */}
+<div className='ml-[70px] flex flex-col md:flex-row md:gap-7'>
   <h2 className='text-black font-semibold text-3xl'>All Reviews</h2>
   <span className='text-gray-500 ml-3 mt-2'>(451)</span>
 
-
-<div className='flex  gap-7 ml-[700px]'>
-<span className='bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-text-black mb-5'>
-<Image src={"/Frame (10).png"} width={24} height={24} alt=''/>
+  <div className='flex gap-7 ml-auto'>
+    <span className='bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-text-black mb-5'>
+      <Image src={"/Frame (10).png"} width={24} height={24} alt='' />
     </span>
-</div>
+  </div>
 
-
-<div className='gap-7'>
-<span className='bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5'>
-Latest
-<Image src={"/Frame (9).png"} width={16} height={16} alt='' className='ml-3'/>
+  <div className='gap-7'>
+    <span className='bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5'>
+      Latest
+      <Image src={"/Frame (9).png"} width={24} height={24} alt='' />
     </span>
-</div>
+  </div>
 
-<div className='gap-7'>
-<span className='bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5'>
-Write a Review
+  <div className='gap-7'>
+    <span className='bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5'>
+      Write a Review
     </span>
-</div>
+  </div>
 </div>
 
-
-      
-    
-<div className="flex justify-between ml-[70px]">
+{/* Reviews Grid Section */}
+<div className="flex flex-col md:flex-row justify-between ml-[70px] gap-7">
   {/* Left Column with 3 Reviews */}
   <div className="w-full md:w-1/2 p-4">
     <div className="flex flex-col space-y-4">
@@ -408,7 +425,7 @@ Write a Review
   </div>
 
   {/* Spacer to create space between left and right columns */}
-  <div className="w-8"></div> 
+  <div className="w-8 md:w-2"></div> 
 
   {/* Right Column with 3 Reviews */}
   <div className="w-full md:w-1/2 p-4">
@@ -455,10 +472,14 @@ Write a Review
     </div>
   </div>
 </div>
-        
-<button className="w-[230px] font-medium h-[52px] border-2 border-gray-100 text-black text-sm ml-[600px] mt-[20px] rounded-full">
-  Load More Reviews
-</button>
+
+{/* Load More Button */}
+<div className="flex justify-center mt-[20px]">
+  <button className="w-[230px] font-medium h-[52px] border-2 border-gray-100 text-black text-sm rounded-full">
+    Load More Reviews
+  </button>
+</div>
+
 
 
 
@@ -502,7 +523,7 @@ Write a Review
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black ">Gradient Graphic  T&#39;shirt</p>
+          <p className="mt-4 font-bold text-lg text-black ">Gradient Graphic  T-shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">3.5/</span>
             <span className="text-gray-500">5</span>
@@ -539,7 +560,7 @@ Write a Review
             height={200}
             className="mx-auto rounded-lg shadow"
           />
-          <p className="mt-4 font-bold text-lg text-black">Black Striped  T&#39;shirt</p>
+          <p className="mt-4 font-bold text-lg text-black">Black Striped  T-shirt</p>
           <div className="text-yellow-400 text-sm my-1">
             ★★★☆☆ <span className="text-black text-sm">5.0/</span>
             <span className="text-gray-500">5</span>
