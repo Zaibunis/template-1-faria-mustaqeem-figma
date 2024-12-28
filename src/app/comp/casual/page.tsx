@@ -28,127 +28,128 @@ const Filters = () => {
   const styles = ["Casual", "Formal" , "Party" , "Gym"];
 
   return (
-    <div className="w-full md:w-64 bg-white rounded-md border border-gray-300 p-4 space-y-6 mt-[10px] ml-[20px]">
-    <h2 className="text-xl font-bold mb-[30px] border-b-2 flex items-center justify-between pb-2">
-      Filters
-      <Image src={"/Frame (11).png"} width={24} height={24} alt="" />
-    </h2>
-  
-    {/* Categories */}
-    <div>
-      <ul className="space-y-2 border-b-2 pb-2 mb-4">
-        {["T-shirts", "Shorts", "Shirts", "Hoodies", "Jeans"].map((category) => (
-          <li key={category} className="flex items-center justify-between">
-            <button className="text-gray-700 hover:underline">{category}</button>
-            <Image src={"/Frame (13).png"} width={16} height={16} alt="" />
-          </li>
-        ))}
-      </ul>
-    </div>
-  
-    {/* Price Filter */}
-    <div>
-      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-        Price
-        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-      </h3>
-  
-      <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4">
-        <span>$50</span>
-        <input type="range" min="50" max="200" defaultValue="125" className="w-full" />
-        <span>$200</span>
-      </div>
-    </div>
-  
-    {/* Colors */}
-    <div>
-      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-        Colors
-        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-      </h3>
-      <div className="flex flex-wrap gap-4 mb-4">
-        {colors.slice(0, 5).map((color) => (
-          <button
-            key={color}
-            style={{ backgroundColor: color }}
-            className="w-6 h-6 rounded-full border relative flex items-center justify-center"
-          >
-            {color === "darkblue" && (
-              <Image
-                src="/tick.png"
-                alt="Tick"
-                width={12}
-                height={12}
-                className="absolute"
-              />
-            )}
-          </button>
-        ))}
-      </div>
-      <div className="flex flex-wrap gap-4">
-        {colors.slice(5).map((color) => (
-          <button
-            key={color}
-            style={{ backgroundColor: color }}
-            className="w-6 h-6 rounded-full border relative flex items-center justify-center"
-          >
-            {color === "darkblue" && (
-              <Image
-                src="/Frame (14).png"
-                alt="Tick"
-                width={12}
-                height={12}
-                className="absolute"
-              />
-            )}
-          </button>
-        ))}
-      </div>
-    </div>
-  
-    {/* Sizes */}
-    <div>
-      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-        Size
-        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-      </h3>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {sizes.map((size) => (
-          <button
-            key={size}
-            className={`border px-4 py-2 text-sm rounded-full ${
-              size === "Large" ? "bg-black text-white" : "bg-gray-100 text-gray-500"
-            }`}
-          >
-            {size}
-          </button>
-        ))}
-      </div>
-    </div>
-  
-    {/* Dress Style */}
-    <div>
-      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-        Dress Style
-        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-      </h3>
-      <div className="space-y-2 pb-2 mb-4">
-        {styles.map((style) => (
-          <div key={style} className="flex items-center justify-between">
-            <button className="text-gray-700 hover:underline">{style}</button>
-            <Image src={"/Frame (13).png"} width={16} height={16} alt="" />
-          </div>
-        ))}
-      </div>
-  
-      {/* Apply Filter Button */}
-      <div className="flex justify-center">
-        <button className="text-white bg-black rounded-full w-full md:w-[247px] h-[48px] border border-gray-300 mb-[10px]">
-          Apply Filter
-        </button>
-      </div>
+    <div className="w-full md:w-64 bg-white rounded-md border border-gray-300 p-4 space-y-6 mt-[10px] md:ml-auto">
+  <h2 className="text-xl font-bold mb-[30px] border-b-2 flex items-center justify-between pb-2">
+    Filters
+    <Image src={"/Frame (11).png"} width={24} height={24} alt="" />
+  </h2>
+
+  {/* Categories */}
+  <div>
+    <ul className="space-y-2 border-b-2 pb-2 mb-4">
+      {["T-shirts", "Shorts", "Shirts", "Hoodies", "Jeans"].map((category) => (
+        <li key={category} className="flex items-center justify-between">
+          <button className="text-gray-700 hover:underline">{category}</button>
+          <Image src={"/Frame (13).png"} width={16} height={16} alt="" />
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* Price Filter */}
+  <div>
+    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+      Price
+      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+    </h3>
+
+    <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4">
+      <span>$50</span>
+      <input type="range" min="50" max="200" defaultValue="125" className="w-full" />
+      <span>$200</span>
     </div>
   </div>
+
+  {/* Colors */}
+  <div>
+    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+      Colors
+      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+    </h3>
+    <div className="flex flex-wrap gap-4 mb-4">
+      {colors.slice(0, 5).map((color) => (
+        <button
+          key={color}
+          style={{ backgroundColor: color }}
+          className="w-6 h-6 rounded-full border relative flex items-center justify-center"
+        >
+          {color === "darkblue" && (
+            <Image
+              src="/tick.png"
+              alt="Tick"
+              width={12}
+              height={12}
+              className="absolute"
+            />
+          )}
+        </button>
+      ))}
+    </div>
+    <div className="flex flex-wrap gap-4">
+      {colors.slice(5).map((color) => (
+        <button
+          key={color}
+          style={{ backgroundColor: color }}
+          className="w-6 h-6 rounded-full border relative flex items-center justify-center"
+        >
+          {color === "darkblue" && (
+            <Image
+              src="/Frame (14).png"
+              alt="Tick"
+              width={12}
+              height={12}
+              className="absolute"
+            />
+          )}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  {/* Sizes */}
+  <div>
+    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+      Size
+      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+    </h3>
+    <div className="flex flex-wrap gap-2 mb-4">
+      {sizes.map((size) => (
+        <button
+          key={size}
+          className={`border px-4 py-2 text-sm rounded-full ${
+            size === "Large" ? "bg-black text-white" : "bg-gray-100 text-gray-500"
+          }`}
+        >
+          {size}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  {/* Dress Style */}
+  <div>
+    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+      Dress Style
+      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+    </h3>
+    <div className="space-y-2 pb-2 mb-4">
+      {styles.map((style) => (
+        <div key={style} className="flex items-center justify-between">
+          <button className="text-gray-700 hover:underline">{style}</button>
+          <Image src={"/Frame (13).png"} width={16} height={16} alt="" />
+        </div>
+      ))}
+    </div>
+
+    {/* Apply Filter Button */}
+    <div className="flex justify-center">
+      <button className="text-white bg-black rounded-full w-full md:w-[247px] h-[48px] border border-gray-300 mb-[10px]">
+        Apply Filter
+      </button>
+    </div>
+  </div>
+</div>
+
   
   )
 }  

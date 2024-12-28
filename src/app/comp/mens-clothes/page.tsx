@@ -71,24 +71,27 @@ const Page = () => {
     <div>
       {/* Sticky Announcement Section */}
       <header>
-        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
-          {/* Text and Sign-Up Link */}
-          <div className="flex items-center justify-between w-full sm:w-auto">
-            <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
-              Sign up and get 20% off your first order.
-            </span>
-            <div className="flex items-center justify-center sm:justify-start mt-2 sm:mt-0">
-              <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
-                <span className="mr-2">Sign Up Now</span>
-                <Image
-                  src="/Vector (2).png"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="ml-2"
-                />
-              </div>
-            </div>
+      <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
+    {/* Text and Sign-Up Link */}
+    <div className="flex items-center justify-between w-full sm:w-auto">
+      <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
+        Sign up and get 20% off your first order.
+      </span>
+      
+      <div className="flex items-center mt-2 sm:mt-0 space-x-2 sm:space-x-3">
+  {/* Sign Up Now with Icon in One Line */}
+  <div className="flex items-center justify-center">
+    <span className="mr-2 underline">Sign Up Now</span>
+    <Image
+      src="/Vector (2).png"
+      alt="arrow"
+      width={20}
+      height={20}
+      className="ml-2"
+    />
+  </div>
+</div>
+
           </div>
         </div>
 
@@ -220,10 +223,10 @@ const Page = () => {
   </BreadcrumbList>
 </Breadcrumb>
 
-<div className="flex flex-wrap items-start gap-6 ml-[100px]">
+<div className="flex flex-col md:flex-row items-center justify-center gap-6 px-4 md:px-10 lg:px-[100px]">
 
-  {/* Thumbnail Images */}
-  <div className="flex flex-col mt-[30px] gap-4">
+  {/* Thumbnail Images (Stacked Vertically in original layout, Horizontally on larger screens) */}
+  <div className="flex flex-col gap-4 mt-[30px] justify-center md:w-[20%] lg:w-[15%]">
     <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
       <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
     </div>
@@ -235,18 +238,24 @@ const Page = () => {
     </div>
   </div>
 
-  {/* Product Details Section */}
-  <section className="text-gray-600 body-font overflow-hidden flex-1">
+  {/* Product Details Section (Centered and Responsive) */}
+  <section className="text-gray-600 body-font overflow-hidden flex-1 w-full">
     <div className="container px-5 py-5 mx-auto">
-      <div className="lg:w-full mx-auto flex flex-wrap">
-        <Image
-          alt="ecommerce"
-          width={444}
-          height={530}
-          className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-          src="/image 1.png"
-        />
-        <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+
+        {/* Main Product Image */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <Image
+            alt="ecommerce"
+            width={444}
+            height={530}
+            className="w-full lg:h-auto h-64 object-cover object-center rounded"
+            src="/image 1.png"
+          />
+        </div>
+
+        {/* Product Info */}
+        <div className="flex flex-col md:w-1/2 mt-6 md:mt-0 md:pl-10 lg:py-6">
           <h1 className="text-black text-3xl title-font font-extrabold mb-1">
             One Life Graphic T-shirt
           </h1>
@@ -283,7 +292,7 @@ const Page = () => {
           </div>
 
           {/* Product Description */}
-          <p className="mb-5 text-sm whitespace-nowrap">
+          <p className="mb-5 text-sm whitespace-normal">
             This graphic t-shirt is perfect for any occasion. Crafted from a soft and
             breathable fabric, it offers superior comfort and style.
           </p>
@@ -344,41 +353,50 @@ const Page = () => {
   </section>
 </div>
 
+
+
+
 <div className='flex flex-col mb-[25px]'>
-  <div className='flex items-center justify-between mt-[20px]'>
-    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center'>Product Details</span>
-    <span className='text-black border-b-2 border-black flex-1 text-center'>Rating & Reviews</span>
-    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center'>FAQs</span>
+  {/* Tabs Section */}
+  <div className='flex flex-col md:flex-row items-center justify-between mt-[20px]'>
+    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0'>
+      Product Details
+    </span>
+    <span className='text-black border-b-2 border-black flex-1 text-center py-2 md:py-0'>
+      Rating & Reviews
+    </span>
+    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0'>
+      FAQs
+    </span>
   </div>
 </div>
 
 {/* Reviews Section */}
-<div className='ml-[70px] flex flex-col md:flex-row md:gap-7'>
+<div className='ml-[10px] md:ml-[70px] flex flex-col md:flex-row md:gap-7'>
   <h2 className='text-black font-semibold text-3xl'>All Reviews</h2>
   <span className='text-gray-500 ml-3 mt-2'>(451)</span>
 
-  <div className='flex gap-7 ml-auto'>
-    <span className='bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-text-black mb-5'>
-      <Image src={"/Frame (10).png"} width={24} height={24} alt='' />
-    </span>
-  </div>
+ {/* Button Container */}
+<div className='flex flex-wrap justify-start md:justify-end gap-4 mt-4 md:mt-0 ml-0 md:ml-[600px]'>
+  <span className='bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-text-black mb-5'>
+    <Image src={"/Frame (10).png"} width={24} height={24} alt='' />
+  </span>
 
-  <div className='gap-7'>
-    <span className='bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5'>
-      Latest
-      <Image src={"/Frame (9).png"} width={24} height={24} alt='' />
-    </span>
-  </div>
+  <span className='bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5'>
+    Latest
+    <Image src={"/Frame (9).png"} width={24} height={24} alt='' />
+  </span>
 
-  <div className='gap-7'>
-    <span className='bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5'>
-      Write a Review
-    </span>
-  </div>
+  <span className='bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5'>
+    Write a Review
+  </span>
 </div>
 
+</div>
+
+
 {/* Reviews Grid Section */}
-<div className="flex flex-col md:flex-row justify-between ml-[70px] gap-7">
+<div className="flex flex-col md:flex-row justify-between gap-7 px-4 md:px-[70px]">
   {/* Left Column with 3 Reviews */}
   <div className="w-full md:w-1/2 p-4">
     <div className="flex flex-col space-y-4">
@@ -425,7 +443,7 @@ const Page = () => {
   </div>
 
   {/* Spacer to create space between left and right columns */}
-  <div className="w-8 md:w-2"></div> 
+  <div className="w-0 md:w-2"></div> 
 
   {/* Right Column with 3 Reviews */}
   <div className="w-full md:w-1/2 p-4">
@@ -472,6 +490,7 @@ const Page = () => {
     </div>
   </div>
 </div>
+
 
 {/* Load More Button */}
 <div className="flex justify-center mt-[20px]">

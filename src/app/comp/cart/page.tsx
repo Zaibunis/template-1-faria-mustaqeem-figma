@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,89 +21,76 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { Input } from "@/components/ui/input";
+import { useState } from "react"
 
 export default function Page() {
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+    // Toggle the mobile menu visibility
+    const toggleMenu = () => {
+      setIsMobileMenuOpen(!isMobileMenuOpen)
+    }
   return (
     <div>
-      <header>
-        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[55px]">
-          <div className="flex items-center space-x-4">
-            <span className="text-center ml-[400px]">
+       {/* Sticky Announcement Section */}
+       <header>
+        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
+          {/* Text and Sign-Up Link */}
+          <div className="flex items-center justify-between w-full sm:w-auto">
+            <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
               Sign up and get 20% off your first order.
             </span>
-            <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
-              <span className="mr-2">Sign Up Now</span>
-              <Image
-                src="/Vector (2).png"
-                alt="Sign Up Icon"
-                width={20}
-                height={20}
-                className="ml-[300px]"
-              />
+            <div className="flex items-center justify-center sm:justify-start mt-2 sm:mt-0">
+              <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
+                <span className="mr-2">Sign Up Now</span>
+                <Image
+                  src="/Vector (2).png"
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="ml-2"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center justify-between px-[100px] py-4 bg-white">
+        {/* Navigation Section */}
+        <div className="flex items-center justify-between px-[20px] sm:px-[100px] py-4 bg-white">
           {/* Logo */}
           <div>
             <Image src="/SHOP.CO.png" alt="Logo" width={141} height={22} />
           </div>
 
-          {/* Navigation Links */}
-          <nav>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden sm:block">
             <ul className="flex items-center gap-x-12">
-              {/* Shop dropdown with NavigationMenu */}
               <li>
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
                       <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <NavigationMenuLink>
-                          <Link href="/comp/casual" passHref>
-                            <div className="block px-4 py-2">Casual</div>
-                          </Link>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                          <Link href="/comp/cart" passHref>
-                            <div className="block px-4 py-2">Cart</div>
-                          </Link>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                          <Link href="/comp/mens-clothes" passHref>
-                            <div className="block px-4 py-2">Mens Clothes</div>
-                          </Link>
-                        </NavigationMenuLink>
-                        {/* Add other items here */}
+                        <NavigationMenuLink>mens</NavigationMenuLink><br />
+                        <NavigationMenuLink>casual</NavigationMenuLink>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
               </li>
-
-              {/* Other links */}
               <li>
-                <Link href="/" passHref>
-                  <div className="hover:underline whitespace-nowrap">
-                    On Sale
-                  </div>
+                <Link href="/" className="hover:underline whitespace-nowrap">
+                  On Sale
                 </Link>
               </li>
-
               <li>
-                <Link href="/" passHref>
-                  <div className="hover:underline whitespace-nowrap">
-                    New Arrivals
-                  </div>
+                <Link href="/" className="hover:underline whitespace-nowrap">
+                  New Arrivals
                 </Link>
               </li>
-
               <li>
-                <Link href="/" passHref>
-                  <div className="hover:underline whitespace-nowrap mr-3">
-                    Brands
-                  </div>
+                <Link href="/" className="hover:underline whitespace-nowrap mr-3">
+                  Brands
                 </Link>
               </li>
             </ul>
@@ -109,13 +98,9 @@ export default function Page() {
 
           {/* Right-Side Elements */}
           <div className="flex items-center gap-x-6">
+            {/* Search Bar */}
             <div className="relative">
-              <Image
-                src="/Frame 3.png"
-                alt="Search Icon"
-                width={477}
-                height={48}
-              />
+              <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
             </div>
 
             {/* Cart Icon */}
@@ -136,10 +121,50 @@ export default function Page() {
               className="cursor-pointer"
             />
           </div>
-        </div>
 
-        {/* Breadcrumb Section */}
-        <Breadcrumb className="mt-5 ml-[95px]">
+          {/* Hamburger Icon for Mobile */}
+          <div className="md:hidden flex items-center ml-4">
+            <button onClick={toggleMenu}>
+              <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+                <div className="w-6 h-1 bg-black"></div>
+                <div className="w-6 h-1 bg-black"></div>
+                <div className="w-6 h-1 bg-black"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden bg-white px-[20px] py-4">
+          <ul>
+            <li className="py-2">
+              <Link href="/comp/mens-clothes" className="block hover:underline">
+                Shop
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                On Sale
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                New Arrivals
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link href="/" className="block hover:underline">
+                Brands
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+
+{/* Breadcrumb Section */}
+<Breadcrumb className="mt-5 ml-[95px]">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -150,203 +175,204 @@ export default function Page() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-      </header>
 
-      {/* Main Content */}
-      <div className="flex-grow p-8">
-        {/* Header Section */}
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl mb-0 font-extrabold ml-[49px]">YOUR CART</h1>
+
+    {/* Main Content */}
+<div className="flex-grow p-8">
+  {/* Header Section */}
+  <div className="flex items-center justify-between mb-6">
+    <h1 className="text-3xl mb-0 font-extrabold ml-[49px]">YOUR CART</h1>
+  </div>
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 py-10">
+  {/* Left: Cart Items */}
+  <div className="md:col-span-2 space-y-4">
+    {/* Cart Item 1 */}
+    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
+      <div className="flex items-center space-x-4">
+        <Image
+          src="/Frame 33 (7).png"
+          width={90} // Smaller image width for responsive
+          height={90} // Smaller image height for responsive
+          alt="Gradient Graphic T-shirt"
+          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
+        />
+        <div>
+          <p className="text-base font-semibold sm:text-sm">Gradient Graphic T-shirt</p> {/* Smaller font size on small screens */}
+          <p className="text-sm text-gray-600">Size: Large</p>
+          <p className="text-sm text-gray-600">Color: White</p>
+          <p className="text-base font-bold mt-3 sm:text-sm">$145</p> {/* Smaller font size on small screens */}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 py-10">
-        {/* Left: Cart Items */}
-        <div className="md:col-span-2 space-y-4">
-        {/* Cart Item 1 */}
-<div className="flex items-center justify-between border border-gray-300 rounded-lg p-4">
-  <div className="flex items-center space-x-4">
-    <Image
-      src="/Frame 33 (7).png"
-      width={124}
-      height={124}
-      alt="Gradient Graphic T-shirt"
-      className="w-20 h-20 rounded"
-    />
-    <div>
-      <p className="text-lg font-semibold">Gradient Graphic T-shirt</p>
-      <p className="text-sm text-gray-600">Size: Large</p>
-      <p className="text-sm text-gray-600">Color: White</p>
-      <p className="text-lg font-bold mt-3">$145</p>
-    </div>
-  </div>
+      {/* Right section with image above the quantity buttons */}
+      <div className="relative flex items-center space-x-4">
+        {/* Image on top of -1+ buttons */}
+        <Image
+          src={"/Frame (15).png"}
+          width={24}
+          height={24}
+          alt="Image"
+          className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
+        />
 
-  {/* Right section with image above the quantity buttons */}
-  <div className="relative flex items-center space-x-4">
-    {/* Image on top of -1+ buttons */}
-    <Image
-      src={"/Frame (15).png"}
-      width={24}
-      height={24}
-      alt="Image"
-      className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
-    />
-
-    {/* Quantity buttons with borders */}
-    <div className="flex items-center bg-gray-200 rounded-full border border-gray-300">
-      <button className="w-10 h-10 flex items-center justify-center text-black border-r border-gray-300">
-        -
-      </button>
-      <span className="w-12 text-center text-black bg-gray-100 flex items-center justify-center">
-        1
-      </span>
-      <button className="w-10 h-10 flex items-center justify-center text-black border-l border-gray-300">
-        +
-      </button>
+        {/* Quantity buttons with borders */}
+        <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
+          <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
+            -
+          </button>
+          <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
+            1
+          </span>
+          <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
+            +
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-  {/* Cart Item 2 */}
-  <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4">
-  <div className="flex items-center space-x-4">
-    <Image
-      src="/Frame 34.png"
-      width={124}
-      height={124}
-      alt="Gradient Graphic T-shirt"
-      className="w-20 h-20 rounded"
-    />
-    <div>
-      <p className="text-lg font-semibold">Checkered Shirt</p>
-      <p className="text-sm text-gray-600">Size: Medium</p>
-      <p className="text-sm text-gray-600">Color: Red</p>
-      <p className="text-lg font-bold mt-3">$180</p>
-    </div>
-  </div>
 
-  {/* Right section with image above the quantity buttons */}
-  <div className="relative flex items-center space-x-4">
-    {/* Image on top of -1+ buttons */}
-    <Image
-      src={"/Frame (15).png"}
-      width={24}
-      height={24}
-      alt="Image"
-      className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
-    />
+    {/* Cart Item 2 */}
+    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
+      <div className="flex items-center space-x-4">
+        <Image
+          src="/Frame 34.png"
+          width={90} // Smaller image width for responsive
+          height={90} // Smaller image height for responsive
+          alt="Checkered Shirt"
+          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
+        />
+        <div>
+          <p className="text-base font-semibold sm:text-sm">Checkered Shirt</p> {/* Smaller font size on small screens */}
+          <p className="text-sm text-gray-600">Size: Medium</p>
+          <p className="text-sm text-gray-600">Color: Red</p>
+          <p className="text-base font-bold mt-3 sm:text-sm">$180</p> {/* Smaller font size on small screens */}
+        </div>
+      </div>
 
-    {/* Quantity buttons with borders */}
-    <div className="flex items-center bg-gray-200 rounded-full border border-gray-300">
-      <button className="w-10 h-10 flex items-center justify-center text-black border-r border-gray-300">
-        -
-      </button>
-      <span className="w-12 text-center text-black bg-gray-100 flex items-center justify-center">
-        1
-      </span>
-      <button className="w-10 h-10 flex items-center justify-center text-black border-l border-gray-300">
-        +
-      </button>
-    </div>
-  </div>
-</div>
-{/* Cart Item 3 */}
-<div className="flex items-center justify-between border border-gray-300 rounded-lg p-4">
-  <div className="flex items-center space-x-4">
-    <Image
-      src="/Frame 33 (5).png"
-      width={124}
-      height={124}
-      alt="Gradient Graphic T-shirt"
-      className="w-20 h-20 rounded"
-    />
-    <div>
-      <p className="text-lg font-semibold">Skinny Fit Jeans</p>
-      <p className="text-sm text-gray-600">Size: Large</p>
-      <p className="text-sm text-gray-600">Color: Blue</p>
-      <p className="text-lg font-bold mt-3">$240</p>
-    </div>
-  </div>
+      {/* Right section with image above the quantity buttons */}
+      <div className="relative flex items-center space-x-4">
+        {/* Image on top of -1+ buttons */}
+        <Image
+          src={"/Frame (15).png"}
+          width={24}
+          height={24}
+          alt="Image"
+          className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
+        />
 
-  {/* Right section with image above the quantity buttons */}
-  <div className="relative flex items-center space-x-4">
-    {/* Image on top of -1+ buttons */}
-    <Image
-      src={"/Frame (15).png"}
-      width={24}
-      height={24}
-      alt="Image"
-      className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
-    />
-
-    {/* Quantity buttons with borders */}
-    <div className="flex items-center bg-gray-200 rounded-full border border-gray-300">
-      <button className="w-10 h-10 flex items-center justify-center text-black border-r border-gray-300">
-        -
-      </button>
-      <span className="w-12 text-center text-black bg-gray-100 flex items-center justify-center">
-        1
-      </span>
-      <button className="w-10 h-10 flex items-center justify-center text-black border-l border-gray-300">
-        +
-      </button>
+        {/* Quantity buttons with borders */}
+        <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
+          <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
+            -
+          </button>
+          <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
+            1
+          </span>
+          <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
+            +
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
-        {/* Right: Order Summary */}
-        <div className="border p-6 rounded-lg bg-white">
-          <h3 className="text-lg font-semibold mb-6">Order Summary</h3>
-          <div className="space-y-4">
-            <div className="flex justify-between">
-              <p className="text-gray-600">Subtotal</p>
-              <p className="font-bold">$565</p>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-gray-600">Discount (-20%)</p>
-              <p className="text-red-500">- $113</p>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-gray-600">Delivery Fee</p>
-              <p className="font-bold">$15</p>
-            </div>
-            <div className="flex justify-between border-t pt-4">
-              <p className="text-lg font-semibold">Total</p>
-              <p className="text-lg font-bold">$467</p>
-            </div>
-          </div>
-          <div className="mt-6">
-  <div className="flex items-center justify-between mb-4">
-    <div className="relative w-full">
-      <input
-        type="text"
-        placeholder="Add promo code"
-        className="w-full border p-2 rounded-full pl-10"
-      />
-      <Image
-        src="/Vector (3).png"
-        width={24}
-        height={24}
-        alt="Promo Code Icon"
-        className="absolute left-3 top-1/2  transform -translate-y-1/2"
-      />
-    </div>
-    {/* Apply Button on the right */}
-    <button className="w-[119px] h-[48px] bg-black text-white py-2 rounded-full ml-4">
-      Apply
+    {/* Cart Item 3 */}
+    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
+      <div className="flex items-center space-x-4">
+        <Image
+          src="/Frame 33 (5).png"
+          width={90} // Smaller image width for responsive
+          height={90} // Smaller image height for responsive
+          alt="Skinny Fit Jeans"
+          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
+        />
+        <div>
+          <p className="text-base font-semibold sm:text-sm">Skinny Fit Jeans</p> {/* Smaller font size on small screens */}
+          <p className="text-sm text-gray-600">Size: Large</p>
+          <p className="text-sm text-gray-600">Color: Blue</p>
+          <p className="text-base font-bold mt-3 sm:text-sm">$240</p> {/* Smaller font size on small screens */}
+        </div>
+      </div>
+
+   {/* Right section with image above the quantity buttons */}
+<div className="relative flex items-center space-x-4 flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-4">
+  {/* Image on top of -1+ buttons */}
+  <Image
+    src={"/Frame (15).png"}
+    width={24}
+    height={24}
+    alt="Image"
+    className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2 sm:relative sm:top-0 sm:translate-x-0"
+  />
+
+  {/* Quantity buttons with borders */}
+  <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
+    <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
+      -
+    </button>
+    <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
+      1
+    </span>
+    <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
+      +
     </button>
   </div>
+</div>
+</div>
+</div>
 
-  <button className="w-[360px] h-[60px] bg-black text-white py-2 rounded-full mt-4 flex justify-center items-center">
-  <span className="mr-2">Go to Checkout</span>
-  <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
+       {/* Right: Order Summary */}
+<div className="border p-6 rounded-lg bg-white sm:p-4 md:p-6">
+  <h3 className="text-lg font-semibold mb-6 sm:text-base md:text-lg">Order Summary</h3>
+  <div className="space-y-4">
+    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+      <p className="text-gray-600">Subtotal</p>
+      <p className="font-bold">$565</p>
+    </div>
+    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+      <p className="text-gray-600">Discount (-20%)</p>
+      <p className="text-red-500">- $113</p>
+    </div>
+    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+      <p className="text-gray-600">Delivery Fee</p>
+      <p className="font-bold">$15</p>
+    </div>
+    <div className="flex justify-between border-t pt-4 sm:flex-col sm:space-y-2 md:flex-row">
+      <p className="text-lg font-semibold sm:text-base">Total</p>
+      <p className="text-lg font-bold sm:text-base">$467</p>
+    </div>
+  </div>
+  <div className="mt-6">
+    {/* Promo Code Input and Apply Button */}
+    <div className="flex items-center justify-between mb-4 sm:flex-col sm:space-y-4 sm:items-stretch">
+      <div className="relative w-full sm:w-full">
+        <input
+          type="text"
+          placeholder="Add promo code"
+          className="w-full border p-2 rounded-full pl-10"
+        />
+        <Image
+          src="/Vector (3).png"
+          width={24}
+          height={24}
+          alt="Promo Code Icon"
+          className="absolute left-3 top-1/2 transform -translate-y-1/2"
+        />
+      </div>
+      {/* Apply Button with fixed size */}
+<button className="w-[119px] h-[48px] bg-black text-white py-2 rounded-full mt-4 sm:mt-2 sm:w-full sm:h-[50px]">
+  Apply
 </button>
 
+{/* Go to Checkout Button */}
+<button className="w-[360px] h-[60px] bg-black text-white py-2 rounded-full mt-4 flex justify-center items-center sm:w-full sm:h-[50px]">
+  <span className="mr-2 text-base sm:text-sm">Go to Checkout</span>
+  <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
+</button></div>
+
+  </div>
 </div>
-        </div>
-      </div>
-
-
+</div>
   {/* Newsletter Signup */}
   <div className="w-full bg-black rounded-lg py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
           {/* Text Section */}
