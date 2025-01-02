@@ -26,12 +26,18 @@ import {
 
 const Page = () => {
 
- const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
 
-  // Toggle the mobile menu visibility
+  // Function to toggle mobile menu
   const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Function to toggle the Shop dropdown
+  const toggleShop = () => {
+    setIsShopOpen(!isShopOpen);
+  };
 
   const reviews = [
     {
@@ -105,19 +111,33 @@ const Page = () => {
           {/* Desktop Navigation Links */}
           <nav className="hidden sm:block">
             <ul className="flex items-center gap-x-12">
-              <li>
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <NavigationMenuLink>mens</NavigationMenuLink><br />
-                        <NavigationMenuLink>casual</NavigationMenuLink>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
-              </li>
+            <li>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+            <NavigationMenuContent className="w-[300px] py-2 px-4 bg-white shadow-lg rounded-lg">
+              {/* Link for Mens */}
+              <NavigationMenuLink className="font-bold text-black block mb-2">
+                <Link href="/comp/mens-clothes">Mens-Clothes</Link>
+              </NavigationMenuLink>
+              {/* Line break added */}
+              <br />
+              {/* Link for Casual */}
+              <NavigationMenuLink className="font-bold text-black block mb-2">
+                <Link href="/comp/casual-clothes">Casual</Link>
+              </NavigationMenuLink>
+              {/* Line break added */}
+              <br />
+              {/* Link for Cart */}
+              <NavigationMenuLink className="font-bold text-black block">
+                <Link href="/comp/cart">Cart</Link>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </li>
               <li>
                 <Link href="/" className="hover:underline whitespace-nowrap">
                   On Sale
@@ -163,16 +183,16 @@ const Page = () => {
           </div>
 
           {/* Hamburger Icon for Mobile */}
-          <div className="md:hidden flex items-center ml-4">
-            <button onClick={toggleMenu}>
-              <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
-                <div className="w-6 h-1 bg-black"></div>
-                <div className="w-6 h-1 bg-black"></div>
-                <div className="w-6 h-1 bg-black"></div>
-              </div>
-            </button>
+      <div className="md:hidden flex items-center ml-4">
+        <button onClick={toggleMenu}>
+          <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+            <div className="w-6 h-1 bg-black"></div>
+            <div className="w-6 h-1 bg-black"></div>
+            <div className="w-6 h-1 bg-black"></div>
           </div>
-        </div>
+        </button>
+      </div>
+      </div>
       </header>
 
       {/* Mobile Navigation Menu */}
@@ -180,9 +200,28 @@ const Page = () => {
         <div className="sm:hidden bg-white px-[20px] py-4">
           <ul>
             <li className="py-2">
-              <Link href="/comp/mens-clothes" className="block hover:underline">
+              <button onClick={toggleShop} className="block hover:underline w-full text-left">
                 Shop
-              </Link>
+              </button>
+              {isShopOpen && (
+                <ul className="pl-4">
+                  <li className="py-2">
+                    <Link href="/comp/mens-clothes" className="block hover:underline">
+                      Mens
+                    </Link>
+                  </li>
+                  <li className="py-2">
+                    <Link href="/comp/casual" className="block hover:underline">
+                      Casual
+                    </Link>
+                  </li>
+                  <li className="py-2">
+                    <Link href="/comp/cart" className="block hover:underline">
+                      Cart
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li className="py-2">
               <Link href="/" className="block hover:underline">

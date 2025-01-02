@@ -24,36 +24,45 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react"
 
 export default function Page() {
-   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  
-    // Toggle the mobile menu visibility
-    const toggleMenu = () => {
-      setIsMobileMenuOpen(!isMobileMenuOpen)
-    }
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
+
+  // Function to toggle mobile menu
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Function to toggle the Shop dropdown
+  const toggleShop = () => {
+    setIsShopOpen(!isShopOpen);
+  };
   return (
     <div>
-       {/* Sticky Announcement Section */}
-       <header>
-        <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
-          {/* Text and Sign-Up Link */}
-          <div className="flex items-center justify-between w-full sm:w-auto">
-            <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
-              Sign up and get 20% off your first order.
-            </span>
-            <div className="flex items-center justify-center sm:justify-start mt-2 sm:mt-0">
-              <div className="flex items-center underline text-[#FFFFFF] cursor-pointer">
-                <span className="mr-2">Sign Up Now</span>
-                <Image
-                  src="/Vector (2).png"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="ml-2"
-                />
-              </div>
-            </div>
-          </div>
+        {/* Sticky Announcement Section */}
+<header>
+  <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
+    {/* Text and Sign-Up Link */}
+    <div className="flex items-center justify-between w-full sm:w-auto">
+      <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
+        Sign up and get 20% off your first order.
+      </span>
+
+      <div className="flex items-center mt-0 sm:mt-0 space-x-2 sm:space-x-3">
+        {/* Sign Up Now with Icon in One Line */}
+        <div className="flex items-center ml-3">
+          <span className="mr-3 underline whitespace-nowrap">Sign Up Now</span>
+          <Image
+            src="/Vector (2).png"
+            alt="arrow"
+            width={20}
+            height={20}
+            className="ml-10"
+          />
         </div>
+      </div>
+    </div>
+  </div>
+
 
         {/* Navigation Section */}
         <div className="flex items-center justify-between px-[20px] sm:px-[100px] py-4 bg-white">
@@ -65,19 +74,33 @@ export default function Page() {
           {/* Desktop Navigation Links */}
           <nav className="hidden sm:block">
             <ul className="flex items-center gap-x-12">
-              <li>
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <NavigationMenuLink>mens</NavigationMenuLink><br />
-                        <NavigationMenuLink>casual</NavigationMenuLink>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
-              </li>
+            <li>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+            <NavigationMenuContent className="w-[300px] py-2 px-4 bg-white shadow-lg rounded-lg">
+              {/* Link for Mens */}
+              <NavigationMenuLink className="font-bold text-black block mb-2">
+                <Link href="/comp/mens-clothes">Mens-Clothes</Link>
+              </NavigationMenuLink>
+              {/* Line break added */}
+              <br />
+              {/* Link for Casual */}
+              <NavigationMenuLink className="font-bold text-black block mb-2">
+                <Link href="/comp/casual-clothes">Casual</Link>
+              </NavigationMenuLink>
+              {/* Line break added */}
+              <br />
+              {/* Link for Cart */}
+              <NavigationMenuLink className="font-bold text-black block">
+                <Link href="/comp/cart">Cart</Link>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </li>
               <li>
                 <Link href="/" className="hover:underline whitespace-nowrap">
                   On Sale
@@ -97,7 +120,7 @@ export default function Page() {
           </nav>
 
           {/* Right-Side Elements */}
-          <div className="flex items-center gap-x-6">
+          <div className="flex ml-3 items-center gap-x-6">
             {/* Search Bar */}
             <div className="relative">
               <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
@@ -123,16 +146,16 @@ export default function Page() {
           </div>
 
           {/* Hamburger Icon for Mobile */}
-          <div className="md:hidden flex items-center ml-4">
-            <button onClick={toggleMenu}>
-              <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
-                <div className="w-6 h-1 bg-black"></div>
-                <div className="w-6 h-1 bg-black"></div>
-                <div className="w-6 h-1 bg-black"></div>
-              </div>
-            </button>
+      <div className="md:hidden flex items-center ml-4">
+        <button onClick={toggleMenu}>
+          <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+            <div className="w-6 h-1 bg-black"></div>
+            <div className="w-6 h-1 bg-black"></div>
+            <div className="w-6 h-1 bg-black"></div>
           </div>
-        </div>
+        </button>
+      </div>
+      </div>
       </header>
 
       {/* Mobile Navigation Menu */}
@@ -140,9 +163,28 @@ export default function Page() {
         <div className="sm:hidden bg-white px-[20px] py-4">
           <ul>
             <li className="py-2">
-              <Link href="/comp/mens-clothes" className="block hover:underline">
+              <button onClick={toggleShop} className="block hover:underline w-full text-left">
                 Shop
-              </Link>
+              </button>
+              {isShopOpen && (
+                <ul className="pl-4">
+                  <li className="py-2">
+                    <Link href="/comp/mens-clothes" className="block hover:underline">
+                      Mens
+                    </Link>
+                  </li>
+                  <li className="py-2">
+                    <Link href="/comp/casual" className="block hover:underline">
+                      Casual
+                    </Link>
+                  </li>
+                  <li className="py-2">
+                    <Link href="/comp/cart" className="block hover:underline">
+                      Cart
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li className="py-2">
               <Link href="/" className="block hover:underline">
@@ -343,32 +385,36 @@ export default function Page() {
     </div>
   </div>
   <div className="mt-6">
-    {/* Promo Code Input and Apply Button */}
-    <div className="flex items-center justify-between mb-4 sm:flex-col sm:space-y-4 sm:items-stretch">
-      <div className="relative w-full sm:w-full">
-        <input
-          type="text"
-          placeholder="Add promo code"
-          className="w-full border p-2 rounded-full pl-10"
-        />
-        <Image
-          src="/Vector (3).png"
-          width={24}
-          height={24}
-          alt="Promo Code Icon"
-          className="absolute left-3 top-1/2 transform -translate-y-1/2"
-        />
-      </div>
-      {/* Apply Button with fixed size */}
-<button className="w-[119px] h-[48px] bg-black text-white py-2 rounded-full mt-4 sm:mt-2 sm:w-full sm:h-[50px]">
-  Apply
-</button>
+  {/* Promo Code Input and Apply Button */}
+  <div className="flex flex-col sm:w-full space-y-4">
+    <div className="relative w-full">
+      <input
+        type="text"
+        placeholder="Add promo code"
+        className="w-full border p-2 rounded-full pl-10 sm:w-full md:w-[300px] lg:w-[400px]"
+      />
+      <Image
+        src="/Vector (3).png"
+        width={24}
+        height={24}
+        alt="Promo Code Icon"
+        className="absolute left-3 top-1/2 transform -translate-y-1/2"
+      />
+    </div>
+    
+    {/* Apply Button */}
+    <button className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2">
+      Apply
+    </button>
 
-{/* Go to Checkout Button */}
-<button className="w-[360px] h-[60px] bg-black text-white py-2 rounded-full mt-4 flex justify-center items-center sm:w-full sm:h-[50px]">
-  <span className="mr-2 text-base sm:text-sm">Go to Checkout</span>
-  <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
-</button></div>
+    {/* Go to Checkout Button with image on right side */}
+    <button className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2 flex justify-center items-center space-x-3">
+      <span className="mr-2 text-base sm:text-sm">Go to Checkout</span>
+      <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
+    </button>
+  </div>
+
+
 
   </div>
 </div>
