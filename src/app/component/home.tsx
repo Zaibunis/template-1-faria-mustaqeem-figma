@@ -1,5 +1,6 @@
 'use client'
 
+import { Input } from "@/components/ui/input";
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -94,6 +95,8 @@ export default function Home() {
             <div className="relative">
               <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
             </div>
+
+             
 
             {/* Cart Icon */}
             <Image

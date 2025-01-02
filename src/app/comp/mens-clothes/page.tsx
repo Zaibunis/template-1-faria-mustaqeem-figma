@@ -69,31 +69,31 @@ const Page = () => {
   
   return (
     <div>
-      {/* Sticky Announcement Section */}
-      <header>
-      <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
+{/* Sticky Announcement Section */}
+<header>
+  <div className="w-full h-[38px] flex items-center justify-between bg-[#000000] text-[#FFFFFF] font-integral px-[20px] sm:px-[55px] sticky top-0 z-10">
     {/* Text and Sign-Up Link */}
     <div className="flex items-center justify-between w-full sm:w-auto">
       <span className="text-xs sm:text-base text-center sm:text-left sm:ml-[400px] w-full sm:w-auto">
         Sign up and get 20% off your first order.
       </span>
-      
-      <div className="flex items-center mt-2 sm:mt-0 space-x-2 sm:space-x-3">
-  {/* Sign Up Now with Icon in One Line */}
-  <div className="flex items-center justify-center">
-    <span className="mr-2 underline">Sign Up Now</span>
-    <Image
-      src="/Vector (2).png"
-      alt="arrow"
-      width={20}
-      height={20}
-      className="ml-2"
-    />
-  </div>
-</div>
 
-          </div>
+      <div className="flex items-center mt-0 sm:mt-0 space-x-2 sm:space-x-3">
+        {/* Sign Up Now with Icon in One Line */}
+        <div className="flex items-center ml-3">
+          <span className="mr-3 underline whitespace-nowrap">Sign Up Now</span>
+          <Image
+            src="/Vector (2).png"
+            alt="arrow"
+            width={20}
+            height={20}
+            className="ml-10"
+          />
         </div>
+      </div>
+    </div>
+  </div>
+
 
         {/* Navigation Section */}
         <div className="flex items-center justify-between px-[20px] sm:px-[100px] py-4 bg-white">
@@ -224,8 +224,7 @@ const Page = () => {
 </Breadcrumb>
 
 <div className="flex flex-col md:flex-row items-center justify-center gap-6 px-4 md:px-10 lg:px-[100px]">
-
-  {/* Thumbnail Images (Stacked Vertically in original layout, Horizontally on larger screens) */}
+  {/* Thumbnail Images */}
   <div className="flex flex-col gap-4 mt-[30px] justify-center md:w-[20%] lg:w-[15%]">
     <div className="w-20 h-20 border border-gray-300 rounded-md overflow-hidden">
       <Image src="/image 2.png" width={152} height={167} alt="Thumbnail 1" />
@@ -238,11 +237,10 @@ const Page = () => {
     </div>
   </div>
 
-  {/* Product Details Section (Centered and Responsive) */}
+  {/* Product Details Section */}
   <section className="text-gray-600 body-font overflow-hidden flex-1 w-full">
     <div className="container px-5 py-5 mx-auto">
       <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-
         {/* Main Product Image */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -254,103 +252,101 @@ const Page = () => {
           />
         </div>
 
-        {/* Product Info */}
         <div className="flex flex-col md:w-1/2 mt-6 md:mt-0 md:pl-10 lg:py-6">
-          <h1 className="text-black text-3xl title-font font-extrabold mb-1">
-            One Life Graphic T-shirt
-          </h1>
+  <h1 className="text-black text-3xl title-font font-extrabold mb-1 text-center md:text-left">
+    One Life Graphic T-shirt
+  </h1>
 
-          {/* Rating Section */}
-          <div className="flex flex-col mb-4">
-            <div className="flex items-center mb-2">
-              {[...Array(5)].map((_, index) => (
-                <svg
-                  key={index}
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  className="w-[24.71px] h-[24.71px] text-yellow-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-              <span className="text-black text-sm ml-[9px]">4.5/</span>
-              <span className="text-gray-500 text-sm">5</span>
-            </div>
-
-            {/* Pricing Section */}
-            <div className="flex items-center gap-2 text-gray-500">
-              <span className="font-bold text-black text-2xl">$260</span>
-              <span className="line-through text-2xl ml-2">$300</span>
-              <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
-                -40%
-              </span>
-            </div>
-          </div>
-
-          {/* Product Description */}
-          <p className="mb-5 text-sm whitespace-normal">
-            This graphic t-shirt is perfect for any occasion. Crafted from a soft and
-            breathable fabric, it offers superior comfort and style.
-          </p>
-
-          {/* Color Selection */}
-          <div className="mb-4">
-            <h2 className="text-sm font-medium text-gray-600">Select Colors</h2>
-            <div className="flex space-x-3 mt-2 border-b-2 mb-5">
-              {/* First color with tick */}
-              <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
-                <Image
-                  src="/Frame (14).png"
-                  width={12}
-                  height={12}
-                  alt="Selected"
-                  className="w-4 h-4 absolute top-2 left-2"
-                />
-              </button>
-              {/* Other colors */}
-              <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
-              <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
-            </div>
-          </div>
-
-          {/* Size Selection */}
-          <div className="mb-4">
-            <h2 className="text-sm font-medium text-gray-600">Choose Size</h2>
-            <div className="flex space-x-3 mt-2 border-b-2 mb-5">
-              <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-                Small
-              </span>
-              <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-                Medium
-              </span>
-              <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-                Large
-              </span>
-              <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
-                X-Large
-              </span>
-            </div>
-          </div>
-
-          {/* Quantity Selector */}
-          <div className="flex items-center mb-6 space-x-4">
-            <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
-              <button className="text-lg font-semibold text-black">-</button>
-              <span className="text-sm text-center text-black">1</span>
-              <button className="text-lg font-semibold text-black">+</button>
-            </div>
-            <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
+  {/* Rating Section */}
+  <div className="flex flex-col mb-4 text-center md:text-left">
+    <div className="flex items-center justify-center md:justify-start mb-2">
+      {[...Array(5)].map((_, index) => (
+        <svg
+          key={index}
+          fill="currentColor"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          className="w-[24.71px] h-[24.71px] text-yellow-500"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      ))}
+      <span className="text-black text-sm ml-[9px]">4.5/</span>
+      <span className="text-gray-500 text-sm">5</span>
     </div>
-  </section>
+
+    {/* Pricing Section */}
+    <div className="flex items-center justify-center md:justify-start gap-2 text-gray-500">
+      <span className="font-bold text-black text-2xl">$260</span>
+      <span className="line-through text-2xl ml-2">$300</span>
+      <span className="text-red-500 bg-red-200 text-sm w-[58px] h-[28px] rounded-lg flex items-center justify-center">
+        -40%
+      </span>
+    </div>
+  </div>
+
+  {/* Product Description */}
+  <p className="mb-5 text-sm whitespace-normal text-center md:text-left">
+    This graphic t-shirt is perfect for any occasion. Crafted from a soft and
+    breathable fabric, it offers superior comfort and style.
+  </p>
+
+  {/* Color Selection */}
+  <div className="mb-4">
+    <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">Select Colors</h2>
+    <div className="flex space-x-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
+      {/* First color with tick */}
+      <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
+        <Image
+          src="/Frame (14).png"
+          width={12}
+          height={12}
+          alt="Selected"
+          className="w-4 h-4 absolute top-2 left-2"
+        />
+      </button>
+      {/* Other colors */}
+      <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
+      <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
+    </div>
+  </div>
+
+  {/* Size Selection */}
+  <div className="mb-4">
+    <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">Choose Size</h2>
+    <div className="flex space-x-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
+      <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+        Small
+      </span>
+      <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+        Medium
+      </span>
+      <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+        Large
+      </span>
+      <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
+        X-Large
+      </span>
+    </div>
+  </div>
+
+  {/* Quantity Selector */}
+  <div className="flex items-center mb-6 space-x-4 justify-center md:justify-start">
+    <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
+      <button className="text-lg font-semibold text-black">-</button>
+      <span className="text-sm text-center text-black">1</span>
+      <button className="text-lg font-semibold text-black">+</button>
+    </div>
+    <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
+      Add to Cart
+    </button>
+  </div>
+</div>
+</div></div>
+</section>
 </div>
 
 
@@ -370,11 +366,10 @@ const Page = () => {
     </span>
   </div>
 </div>
-
 {/* Reviews Section */}
-<div className='ml-[10px] md:ml-[70px] flex flex-col md:flex-row md:gap-7'>
-  <h2 className='text-black font-semibold text-3xl'>All Reviews</h2>
-  <span className='text-gray-500 ml-3 mt-2'>(451)</span>
+<div className="flex flex-col items-center text-center md:items-start md:text-left md:flex-row md:gap-7 ml-0 md:ml-[70px]">
+  <h2 className="text-black font-semibold text-3xl">All Reviews</h2>
+  <span className="text-gray-500 mt-2 md:mt-0 md:ml-3">(451)</span>
 
  {/* Button Container */}
 <div className='flex flex-wrap justify-start md:justify-end gap-4 mt-4 md:mt-0 ml-0 md:ml-[600px]'>
