@@ -137,7 +137,7 @@ const Page = () => {
           </nav>
 
           {/* Right-Side Elements */}
-          <div className="flex items-center gap-x-6">
+          <div className="flex ml-3 items-center gap-x-6">
             {/* Search Bar */}
             <div className="relative">
               <Image src="/Frame 3.png" alt="Search Icon" width={477} height={48} />
