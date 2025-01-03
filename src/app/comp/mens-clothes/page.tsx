@@ -26,6 +26,21 @@ import {
 
 const Page = () => {
 
+  const [selectedSize, setSelectedSize] = useState<string | null>(null); // Track selected size
+
+  // Function to handle size selection
+  const handleSizeSelect = (size: string) => {
+    setSelectedSize(size); // Set the selected size on click
+  };
+
+    // State to track selected color
+  const [selectedColor, setSelectedColor] = useState<string | null>(null); // State can be string or null
+
+  // Function to handle color selection, with explicit type for 'color'
+  const handleColorSelect = (color: string) => {
+    setSelectedColor(color); // Set the selected color
+  };
+
   const [quantity, setQuantity] = useState(1);
 
   // Handle increasing the quantity
@@ -114,8 +129,14 @@ const Page = () => {
       date: 'Posted on August 19, 2023',
     },
   ];
-  
-  
+
+  const [showAll, setShowAll] = useState(false); // Initialize showAll state to toggle reviews
+
+  // Toggle function to show more or fewer reviews
+  const toggleReviews = () => {
+    setShowAll(!showAll); // Toggle the state
+  };
+
   return (
     <div>
 {/* Sticky Announcement Section */}
@@ -375,49 +396,98 @@ const Page = () => {
   This graphic t-shirt is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.
 </p>
 
-{/* Color Selection */}
 <div className="mb-4">
-  <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
-    Select Colors
-  </h2>
-  <div className="flex flex-wrap gap-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
-    {/* First color with tick */}
-    <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
-      <Image
-        src="/Frame (14).png"
-        width={12}
-        height={12}
-        alt="Selected"
-        className="w-4 h-4 absolute top-2 left-2"
-      />
-    </button>
-    {/* Other colors */}
-    <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
-    <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
-  </div>
-</div>
+      <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
+        Select Colors
+      </h2>
+      <div className="flex flex-wrap gap-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
+        {/* First color with tick */}
+        <button
+          className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative"
+          onClick={() => handleColorSelect('#4F4631')}
+        >
+          {selectedColor === '#4F4631' && (
+            <Image
+              src="/Frame (14).png"
+              width={12}
+              height={12}
+              alt="Selected"
+              className="w-4 h-4 absolute top-2 left-2"
+            />
+          )}
+        </button>
+        {/* Other colors */}
+        <button
+          className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5 relative"
+          onClick={() => handleColorSelect('#314F4A')}
+        >
+          {selectedColor === '#314F4A' && (
+            <Image
+              src="/Frame (14).png"
+              width={12}
+              height={12}
+              alt="Selected"
+              className="w-4 h-4 absolute top-2 left-2"
+            />
+          )}
+        </button>
+        <button
+          className="w-8 h-8 bg-[#31344F] rounded-full border mb-5 relative"
+          onClick={() => handleColorSelect('#31344F')}
+        >
+          {selectedColor === '#31344F' && (
+            <Image
+              src="/Frame (14).png"
+              width={12}
+              height={12}
+              alt="Selected"
+              className="w-4 h-4 absolute top-2 left-2"
+            />
+          )}
+        </button>
+      </div>
+    </div>
 
 {/* Size Selection */}
 <div className="mb-4">
-  <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
-    Choose Size
-  </h2>
-  <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-2 border-b-2 mb-5">
-    <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-      Small
-    </span>
-    <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-      Medium
-    </span>
-    <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-      Large
-    </span>
-    <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
-      X-Large
-    </span>
-  </div>
-</div>
-
+      <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
+        Choose Size
+      </h2>
+      <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-2 border-b-2 mb-5">
+        <span
+          className={`${
+            selectedSize === 'Small' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+          } rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center mb-5 cursor-pointer`}
+          onClick={() => handleSizeSelect('Small')}
+        >
+          Small
+        </span>
+        <span
+          className={`${
+            selectedSize === 'Medium' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+          } rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center mb-5 cursor-pointer`}
+          onClick={() => handleSizeSelect('Medium')}
+        >
+          Medium
+        </span>
+        <span
+          className={`${
+            selectedSize === 'Large' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+          } rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center mb-5 cursor-pointer`}
+          onClick={() => handleSizeSelect('Large')}
+        >
+          Large
+        </span>
+        <span
+          className={`${
+            selectedSize === 'X-Large' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+          } rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center mb-5 cursor-pointer`}
+          onClick={() => handleSizeSelect('X-Large')}
+        >
+          X-Large
+        </span>
+      </div>
+    </div>
 {/* Quantity Selector */}
 <div className="flex flex-wrap items-center mb-6 gap-4 justify-center md:justify-start">
       <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
@@ -491,111 +561,110 @@ const Page = () => {
 
 {/* Reviews Grid Section */}
 <div className="flex flex-col md:flex-row justify-between gap-7 px-4 md:px-[70px]">
-  {/* Left Column with 3 Reviews */}
-  <div className="w-full md:w-1/2 p-4">
-    <div className="flex flex-col space-y-4">
-      {reviews.slice(0, 3).map((review, index) => (
-        <div key={index} className="border border-gray-200 p-4 rounded-lg">
-          <div className="flex space-x-1 justify-start mb-4">
-            {/* Rating Stars */}
-            {[...Array(5)].map((_, index) => (
-              <svg
-                key={index}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-yellow-500"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              </svg>
+        {/* Left Column with Reviews */}
+        <div className="w-full md:w-1/2 p-4">
+          <div className="grid grid-cols-1 gap-7">
+            {/* Initially show 3 reviews on the left */}
+            {reviews.slice(0, showAll ? 6 : 3).map((review, index) => (
+              <div key={index} className="border border-gray-200 p-4 rounded-lg">
+                <div className="flex space-x-1 justify-start mb-4">
+                  {/* Rating Stars */}
+                  {[...Array(5)].map((_, starIndex) => (
+                    <svg
+                      key={starIndex}
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-yellow-500"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <h2 className="text-black text-lg font-bold mb-3 flex items-center">
+                  {review.name}
+                  <div className="ml-3 flex items-center space-x-2">
+                    {/* Tick Mark (checkmark) SVG */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white bg-green-500 rounded-lg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </h2>
+
+                <p className="text-sm">{review.review}</p>
+                <p className="text-sm mt-8">Posted on {review.date}</p>
+              </div>
             ))}
           </div>
-          <h2 className="text-black text-lg title-font font-bold mb-3 flex items-center">
-            {review.name}
-            <div className="ml-3 flex items-center space-x-2">
-              {/* Tick Mark (checkmark) SVG */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white bg-green-500 rounded-lg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-          </h2>
-
-          <p className="text-sm">
-            {review.review}
-          </p>
-          <p className="text-sm mt-8">Posted on {review.date}</p>
         </div>
-      ))}
-    </div>
-  </div>
 
-  {/* Spacer to create space between left and right columns */}
-  <div className="w-0 md:w-2"></div> 
+        {/* Spacer for layout */}
+        <div className="w-0 md:w-2"></div>
 
-  {/* Right Column with 3 Reviews */}
-  <div className="w-full md:w-1/2 p-4">
-    <div className="flex flex-col space-y-4">
-      {reviews.slice(3, 6).map((review, index) => (
-        <div key={index} className="border border-gray-200 p-4 rounded-lg">
-          <div className="flex space-x-1 justify-start mb-4">
-            {/* Rating Stars */}
-            {[...Array(5)].map((_, index) => (
-              <svg
-                key={index}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-yellow-500"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              </svg>
+        {/* Right Column with Reviews */}
+        <div className="w-full md:w-1/2 p-4">
+          <div className="grid grid-cols-1 gap-7">
+            {/* Show next 3 reviews on the right */}
+            {reviews.slice(3, showAll ? 9 : 6).map((review, index) => (
+              <div key={index} className="border border-gray-200 p-4 rounded-lg">
+                <div className="flex space-x-1 justify-start mb-4">
+                  {/* Rating Stars */}
+                  {[...Array(5)].map((_, starIndex) => (
+                    <svg
+                      key={starIndex}
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-yellow-500"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <h2 className="text-black text-lg font-bold mb-3 flex items-center">
+                  {review.name}
+                  <div className="ml-3 flex items-center space-x-2">
+                    {/* Tick Mark (checkmark) SVG */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white bg-green-500 rounded-lg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </h2>
+
+                <p className="text-sm">{review.review}</p>
+                <p className="text-sm mt-8">Posted on {review.date}</p>
+              </div>
             ))}
           </div>
-          <h2 className="text-black text-lg title-font font-bold mb-3 flex items-center">
-            {review.name}
-            <div className="ml-3 flex items-center space-x-2">
-              {/* Tick Mark (checkmark) SVG */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white bg-green-500 rounded-lg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-          </h2>
-
-          <p className="text-sm">
-            {review.review}
-          </p>
-          <p className="text-sm mt-8">Posted on {review.date}</p>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
+      </div>
 
-
-{/* Load More Button */}
-<div className="flex justify-center mt-[20px]">
-  <button className="w-[230px] font-medium h-[52px] border-2 border-gray-100 text-black text-sm rounded-full">
-    Load More Reviews
-  </button>
-</div>
-
-
-
-
+      {/* Load More / Show Less Button */}
+      <div className="flex justify-center mt-[20px]">
+        <button
+          className="w-[230px] font-medium h-[52px] border-2 border-gray-100 text-black text-sm rounded-full"
+          onClick={toggleReviews}
+        >
+          {showAll ? 'Show Less' : 'Load More Reviews'}
+        </button>
+      </div>
+   
     <section className="py-10 bg-white">
       {/* Header */}
       <div className="text-center mb-8 relative">

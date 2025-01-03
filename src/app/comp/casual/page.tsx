@@ -23,8 +23,25 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react"
 
 const Filters = () => {
-  const colors = [ "green", "red" , "yellow", "orange" , "lightblue"  , "darkblue" ,  "purple", "pink",  "white"  , "black"];
-  const sizes = ["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"];
+  const [selectedColor, setSelectedColor] = useState<string | null>(null); // Track the selected color
+
+  const colors = [
+    'darkblue', 'red', 'green', 'yellow', 'purple', 
+    'pink', 'orange', 'brown', 'blue', 'black'
+  ];
+
+  // Function to handle color selection
+  const handleColorSelect = (color: string) => {
+    setSelectedColor(color); // Set the selected color when clicked
+  };
+
+  const [selectedSize, setSelectedSize] = useState<string | null>(null); // Track selected size
+  const sizes = ["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"]; // Size options
+
+  // Function to handle size selection
+  const handleSizeSelect = (size: string) => {
+    setSelectedSize(size); // Set the selected size on click
+  };
   const styles = ["Casual", "Formal" , "Party" , "Gym"];
 
    // State to manage the selected price value
@@ -68,12 +85,13 @@ const Filters = () => {
     </ul>
   </div>
 
-  <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+  <div>
+      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
         Price
         <Image src="/Frame (12).png" width={16} height={16} alt="" className="ml-auto" />
       </h3>
 
-      <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4">
+      <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4 bg-white p-2 rounded-lg">
         <span>${50}</span>
         <input
           type="range"
@@ -81,7 +99,7 @@ const Filters = () => {
           max="200"
           value={price} // Set value to the state variable
           onChange={handlePriceChange} // Update value on change
-          className="w-full"
+          className="w-full h-[8px] bg-black rounded-lg appearance-none focus:outline-none" // Tailwind classes for the slider
         />
         <span>${200}</span>
       </div>
@@ -90,71 +108,78 @@ const Filters = () => {
       <div className="text-center mt-2 text-gray-700">
         <p>Selected Price: ${price}</p>
       </div>
-  {/* Colors */}
-  <div>
-    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-      Colors
-      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-    </h3>
-    <div className="flex flex-wrap gap-4 mb-4">
-      {colors.slice(0, 5).map((color) => (
-        <button
-          key={color}
-          style={{ backgroundColor: color }}
-          className="w-6 h-6 rounded-full border relative flex items-center justify-center"
-        >
-          {color === "darkblue" && (
-            <Image
-              src="/tick.png"
-              alt="Tick"
-              width={12}
-              height={12}
-              className="absolute"
-            />
-          )}
-        </button>
-      ))}
     </div>
-    <div className="flex flex-wrap gap-4">
-      {colors.slice(5).map((color) => (
-        <button
-          key={color}
-          style={{ backgroundColor: color }}
-          className="w-6 h-6 rounded-full border relative flex items-center justify-center"
-        >
-          {color === "darkblue" && (
-            <Image
-              src="/Frame (14).png"
-              alt="Tick"
-              width={12}
-              height={12}
-              className="absolute"
-            />
-          )}
-        </button>
-      ))}
+
+       {/* Colors */}
+      <div>
+      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+        Colors
+        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+      </h3>
+      
+      <div className="flex flex-wrap gap-4 mb-4">
+        {colors.slice(0, 5).map((color) => (
+          <button
+            key={color}
+            style={{ backgroundColor: color }}
+            className="w-6 h-6 rounded-full border relative flex items-center justify-center"
+            onClick={() => handleColorSelect(color)} // Set the selected color on click
+          >
+            {selectedColor === color && ( // Display tick mark if this color is selected
+              <Image
+                src="/Frame (14).png"
+                alt="Tick"
+                width={12}
+                height={12}
+                className="absolute"
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-4">
+        {colors.slice(5).map((color) => (
+          <button
+            key={color}
+            style={{ backgroundColor: color }}
+            className="w-6 h-6 rounded-full border relative flex items-center justify-center"
+            onClick={() => handleColorSelect(color)} // Set the selected color on click
+          >
+            {selectedColor === color && ( // Display tick mark if this color is selected
+              <Image
+                src="/tick.png"
+                alt="Tick"
+                width={12}
+                height={12}
+                className="absolute"
+              />
+            )}
+          </button>
+        ))}
+      </div>
     </div>
-  </div>
 
   {/* Sizes */}
   <div>
-    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-      Size
-      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-    </h3>
-    <div className="flex flex-wrap gap-2 mb-4">
-      {sizes.map((size) => (
-        <button
-          key={size}
-          className={`border px-4 py-2 text-sm rounded-full ${
-            size === "Large" ? "bg-black text-white" : "bg-gray-100 text-gray-500"
-          }`}
-        >
-          {size}
-        </button>
-      ))}
+      <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+        Size
+        <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
+      </h3>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {sizes.map((size) => (
+          <button
+            key={size}
+            onClick={() => handleSizeSelect(size)} // Set the clicked size
+            className={`border px-4 py-2 text-sm rounded-full ${
+              selectedSize === size ? "bg-black text-white" : "bg-gray-100 text-gray-500"
+            }`}
+          >
+            {size}
+          </button>
+        ))}
+      </div>
     </div>
-  </div>
 
   {/* Dress Style */}
   <div>
