@@ -281,7 +281,7 @@ const Page = () => {
     <div className="container px-5 py-5 mx-auto">
       <div className="flex flex-col md:flex-row justify-center items-center gap-6">
         {/* Main Product Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <div className="w-full md:w-1/2 mb-36 flex justify-center">
           <Image
             alt="ecommerce"
             width={444}
@@ -328,61 +328,64 @@ const Page = () => {
   </div>
 
   {/* Product Description */}
-  <p className="mb-5 text-sm whitespace-normal text-center md:text-left">
-    This graphic t-shirt is perfect for any occasion. Crafted from a soft and
-    breathable fabric, it offers superior comfort and style.
-  </p>
+<p className="mb-5 text-sm whitespace-normal text-center md:text-left">
+  This graphic t-shirt is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.
+</p>
 
-  {/* Color Selection */}
-  <div className="mb-4">
-    <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">Select Colors</h2>
-    <div className="flex space-x-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
-      {/* First color with tick */}
-      <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
-        <Image
-          src="/Frame (14).png"
-          width={12}
-          height={12}
-          alt="Selected"
-          className="w-4 h-4 absolute top-2 left-2"
-        />
-      </button>
-      {/* Other colors */}
-      <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
-      <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
-    </div>
-  </div>
-
-  {/* Size Selection */}
-  <div className="mb-4">
-    <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">Choose Size</h2>
-    <div className="flex space-x-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
-      <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-        Small
-      </span>
-      <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-        Medium
-      </span>
-      <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
-        Large
-      </span>
-      <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
-        X-Large
-      </span>
-    </div>
-  </div>
-
-  {/* Quantity Selector */}
-  <div className="flex items-center mb-6 space-x-4 justify-center md:justify-start">
-    <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
-      <button className="text-lg font-semibold text-black">-</button>
-      <span className="text-sm text-center text-black">1</span>
-      <button className="text-lg font-semibold text-black">+</button>
-    </div>
-    <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
-      Add to Cart
+{/* Color Selection */}
+<div className="mb-4">
+  <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
+    Select Colors
+  </h2>
+  <div className="flex flex-wrap gap-3 mt-2 border-b-2 mb-5 justify-center md:justify-start">
+    {/* First color with tick */}
+    <button className="w-8 h-8 bg-[#4F4631] rounded-full border mb-5 relative">
+      <Image
+        src="/Frame (14).png"
+        width={12}
+        height={12}
+        alt="Selected"
+        className="w-4 h-4 absolute top-2 left-2"
+      />
     </button>
+    {/* Other colors */}
+    <button className="w-8 h-8 bg-[#314F4A] rounded-full border mb-5"></button>
+    <button className="w-8 h-8 bg-[#31344F] rounded-full border mb-5"></button>
   </div>
+</div>
+
+{/* Size Selection */}
+<div className="mb-4">
+  <h2 className="text-sm font-medium text-gray-600 text-center md:text-left">
+    Choose Size
+  </h2>
+  <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-2 border-b-2 mb-5">
+    <span className="bg-gray-100 rounded-full text-sm w-[86px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+      Small
+    </span>
+    <span className="bg-gray-100 rounded-full text-sm w-[105px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+      Medium
+    </span>
+    <span className="bg-gray-100 rounded-full text-sm w-[89px] h-[46px] flex items-center justify-center text-gray-500 mb-5">
+      Large
+    </span>
+    <span className="bg-black rounded-full text-sm w-[104px] h-[46px] flex items-center justify-center text-white mb-5">
+      X-Large
+    </span>
+  </div>
+</div>
+
+{/* Quantity Selector */}
+<div className="flex flex-wrap items-center mb-6 gap-4 justify-center md:justify-start">
+  <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
+    <button className="text-lg font-semibold text-black">-</button>
+    <span className="text-sm text-center text-black">1</span>
+    <button className="text-lg font-semibold text-black">+</button>
+  </div>
+  <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
+    Add to Cart
+  </button>
+</div>
 </div>
 </div></div>
 </section>
@@ -391,43 +394,44 @@ const Page = () => {
 
 
 
-<div className='flex flex-col mb-[25px]'>
+
+<div className="flex flex-col mb-[25px] px-4 md:px-8">
   {/* Tabs Section */}
-  <div className='flex flex-col md:flex-row items-center justify-between mt-[20px]'>
-    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0'>
+  <div className="flex flex-wrap items-center justify-center md:justify-between mt-[20px]">
+    <span className="text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0">
       Product Details
     </span>
-    <span className='text-black border-b-2 border-black flex-1 text-center py-2 md:py-0'>
+    <span className="text-black border-b-2 border-black flex-1 text-center py-2 md:py-0">
       Rating & Reviews
     </span>
-    <span className='text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0'>
+    <span className="text-gray-500 border-b-2 border-gray-300 flex-1 text-center py-2 md:py-0">
       FAQs
     </span>
   </div>
 </div>
+
+
 {/* Reviews Section */}
 <div className="flex flex-col items-center text-center md:items-start md:text-left md:flex-row md:gap-7 ml-0 md:ml-[70px]">
   <h2 className="text-black font-semibold text-3xl">All Reviews</h2>
   <span className="text-gray-500 mt-2 md:mt-0 md:ml-3">(451)</span>
 
- {/* Button Container */}
-<div className='flex flex-wrap justify-start md:justify-end gap-4 mt-4 md:mt-0 ml-0 md:ml-[600px]'>
-  <span className='bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-text-black mb-5'>
-    <Image src={"/Frame (10).png"} width={24} height={24} alt='' />
-  </span>
-
-  <span className='bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5'>
-    Latest
-    <Image src={"/Frame (9).png"} width={24} height={24} alt='' />
-  </span>
-
-  <span className='bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5'>
-    Write a Review
-  </span>
+  {/* Button Container */}
+<div className="flex flex-wrap gap-2 mt-4 md:mt-0 justify-center md:justify-end px-4 md:px-8">
+  <div className="w-full flex justify-center md:justify-end">
+    <span className="bg-gray-100 font-semibold rounded-full text-sm w-[48px] h-[48px] flex items-center justify-center text-black mb-5">
+      <Image src="/Frame (10).png" width={24} height={24} alt="" />
+    </span>
+    <span className="bg-gray-100 font-semibold rounded-full text-sm w-[120px] h-[48px] flex items-center justify-center text-black mb-5 ml-2">
+      Latest
+      <Image src="/Frame (9).png" width={24} height={24} alt="" />
+    </span>
+    <span className="bg-black font-semibold rounded-full text-sm w-[166px] h-[48px] flex items-center justify-center text-white mb-5 ml-2">
+      Write a Review
+    </span>
+  </div>
 </div>
-
 </div>
-
 
 {/* Reviews Grid Section */}
 <div className="flex flex-col md:flex-row justify-between gap-7 px-4 md:px-[70px]">
