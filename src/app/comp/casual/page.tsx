@@ -27,6 +27,28 @@ const Filters = () => {
   const sizes = ["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"];
   const styles = ["Casual", "Formal" , "Party" , "Gym"];
 
+   // State to manage the selected price value
+   const [price, setPrice] = useState(125); // Initial value set to 125
+
+   // Handle change in range input value
+   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     setPrice(Number(e.target.value)); // Update price state with new value
+   };
+
+ // Simple state to show button click effect
+ const [filterApplied, setFilterApplied] = useState(false);
+
+ // Simple apply filter function
+ const handleApplyFilter = () => {
+   setFilterApplied(true);
+   alert("Filter applied!");
+
+   // Hide the success message after 3 seconds
+   setTimeout(() => {
+     setFilterApplied(false);
+   }, 3000); // 3000 ms = 3 seconds
+ };
+
   return (
     <div className="w-full md:w-64 bg-white rounded-md border border-gray-300 p-4 space-y-6 mt-[10px] md:ml-auto">
   <h2 className="text-xl font-bold mb-[30px] border-b-2 flex items-center justify-between pb-2">
@@ -46,20 +68,28 @@ const Filters = () => {
     </ul>
   </div>
 
-  {/* Price Filter */}
-  <div>
-    <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
-      Price
-      <Image src={"/Frame (12).png"} width={16} height={16} alt="" className="ml-auto" />
-    </h3>
+  <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
+        Price
+        <Image src="/Frame (12).png" width={16} height={16} alt="" className="ml-auto" />
+      </h3>
 
-    <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4">
-      <span>$50</span>
-      <input type="range" min="50" max="200" defaultValue="125" className="w-full" />
-      <span>$200</span>
-    </div>
-  </div>
+      <div className="flex items-center space-x-2 border-b-2 pb-2 mb-4">
+        <span>${50}</span>
+        <input
+          type="range"
+          min="50"
+          max="200"
+          value={price} // Set value to the state variable
+          onChange={handlePriceChange} // Update value on change
+          className="w-full"
+        />
+        <span>${200}</span>
+      </div>
 
+      {/* Display the selected price value */}
+      <div className="text-center mt-2 text-gray-700">
+        <p>Selected Price: ${price}</p>
+      </div>
   {/* Colors */}
   <div>
     <h3 className="text-lg font-semibold flex items-center pb-2 mb-4">
@@ -143,10 +173,20 @@ const Filters = () => {
 
     {/* Apply Filter Button */}
     <div className="flex justify-center">
-      <button className="text-white bg-black rounded-full w-full md:w-[247px] h-[48px] border border-gray-300 mb-[10px]">
-        Apply Filter
-      </button>
-    </div>
+        <button
+          className="text-white bg-black rounded-full w-full md:w-[247px] h-[48px] border border-gray-300 mb-[10px]"
+          onClick={handleApplyFilter}
+        >
+          Apply Filter
+        </button>
+      </div>
+
+      {/* Feedback for filter applied */}
+      {filterApplied && (
+        <div className="mt-4 text-center text-green-500">
+          Filters have been applied successfully!
+        </div>
+      )}
   </div>
 </div>
 

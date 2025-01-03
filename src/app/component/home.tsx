@@ -81,7 +81,7 @@ export default function Home() {
               <br />
               {/* Link for Casual */}
               <NavigationMenuLink className="font-bold text-black block mb-2">
-                <Link href="/comp/casual-clothes">Casual</Link>
+                <Link href="/comp/casual">Casual</Link>
               </NavigationMenuLink>
               {/* Line break added */}
               <br />

@@ -21,9 +21,89 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { Input } from "@/components/ui/input";
-import { useState } from "react"
+import { useState , useEffect } from "react"
 
+// Type for cart items
+type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+};
 export default function Page() {
+
+  const [promoCode, setPromoCode] = useState<string>('');
+  const [isPromoApplied, setIsPromoApplied] = useState<boolean>(false);
+
+
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  // Fetch cart items from localStorage on page load
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCartItems(storedCart);
+  }, []);
+
+  const handleIncrease = (id: number): void => {
+    setCartItems(cartItems.map(item =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    ));
+    // Optionally update the cart in localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  };
+
+  const handleDecrease = (id: number): void => {
+    setCartItems(cartItems.map(item =>
+      item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+    ));
+    // Optionally update the cart in localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  };
+
+  const handleRemove = (id: number): void => {
+    const updatedCart = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedCart);
+    // Update cart in localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  // Calculate subtotal, discount, and total as per your existing logic
+  const calculateSubtotal = (): number => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  // Calculate discount
+  const calculateDiscount = (subtotal: number): number => {
+    return subtotal * 0.2; // 20% discount
+  };
+
+  // Calculate total after discount and adding delivery fee
+  const calculateTotal = (subtotal: number): number => {
+    return subtotal - calculateDiscount(subtotal) + 15; // Adding $15 delivery fee
+  };
+
+  // Apply promo code
+  const handleApplyPromo = () => {
+    if (promoCode === 'DISCOUNT20') {
+      setIsPromoApplied(true);
+      
+    } else {
+      alert('Invalid promo code');
+      setIsPromoApplied(false);
+    }
+  };
+
+  const handleCheckout = () => {
+    alert("Your items are added to the cart. Proceeding to checkout.");
+   
+  };
+
+  const subtotal = calculateSubtotal();
+  const discount = calculateDiscount(subtotal);
+  const total = calculateTotal(subtotal);
+
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
 
@@ -228,197 +308,120 @@ export default function Page() {
 </div>
 
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 py-10">
-  {/* Left: Cart Items */}
-  <div className="md:col-span-2 space-y-4">
-    {/* Cart Item 1 */}
-    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
-      <div className="flex items-center space-x-4">
-        <Image
-          src="/Frame 33 (7).png"
-          width={90} // Smaller image width for responsive
-          height={90} // Smaller image height for responsive
-          alt="Gradient Graphic T-shirt"
-          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
-        />
-        <div>
-          <p className="text-base font-semibold sm:text-sm">Gradient Graphic T-shirt</p> {/* Smaller font size on small screens */}
-          <p className="text-sm text-gray-600">Size: Large</p>
-          <p className="text-sm text-gray-600">Color: White</p>
-          <p className="text-base font-bold mt-3 sm:text-sm">$145</p> {/* Smaller font size on small screens */}
-        </div>
+      {/* Left: Cart Items */}
+      <div className="md:col-span-2 space-y-4">
+        {cartItems.map((item) => (
+          <div key={item.id} className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
+            <div className="flex items-center space-x-4">
+              <Image
+                src={item.image}
+                width={90} 
+                height={90} 
+                alt={item.name}
+                className="w-20 h-20 rounded sm:w-16 sm:h-16"
+              />
+              <div>
+                <p className="text-base font-semibold sm:text-sm">{item.name}</p>
+                <p className="text-sm text-gray-600">Size: Large</p>
+                <p className="text-sm text-gray-600">Color: White</p>
+                <p className="text-base font-bold mt-3 sm:text-sm">${item.price}</p>
+              </div>
+            </div>
+
+            {/* Right section with image above the quantity buttons */}
+            <div className="relative flex items-center space-x-4">
+              {/* Image for trash bin */}
+              <Image
+                src={"/Frame (15).png"} // Use your dustbin image here
+                width={24}
+                height={24}
+                alt="Remove"
+                className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2 cursor-pointer"
+                onClick={() => handleRemove(item.id)} // Ensure item id is passed correctly
+              />
+
+              {/* Quantity buttons with borders */}
+              <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
+                <button
+                  className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6"
+                  onClick={() => handleDecrease(item.id)}
+                >
+                  -
+                </button>
+                <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
+                  {item.quantity}
+                </span>
+                <button
+                  className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6"
+                  onClick={() => handleIncrease(item.id)}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Right section with image above the quantity buttons */}
-      <div className="relative flex items-center space-x-4">
-        {/* Image on top of -1+ buttons */}
-        <Image
-          src={"/Frame (15).png"}
-          width={24}
-          height={24}
-          alt="Image"
-          className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
-        />
+      {/* Right: Order Summary */}
+      <div className="border p-6 rounded-lg bg-white sm:p-4 md:p-6">
+        <h3 className="text-lg font-semibold mb-6 sm:text-base md:text-lg">Order Summary</h3>
+        <div className="space-y-4">
+          <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+            <p className="text-gray-600">Subtotal</p>
+            <p className="font-bold">${subtotal}</p>
+          </div>
+          <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+            <p className="text-gray-600">Discount (-20%)</p>
+            <p className="text-red-500">- ${discount}</p>
+          </div>
+          <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
+            <p className="text-gray-600">Delivery Fee</p>
+            <p className="font-bold">$15</p>
+          </div>
+          <div className="flex justify-between border-t pt-4 sm:flex-col sm:space-y-2 md:flex-row">
+            <p className="text-lg font-semibold sm:text-base">Total</p>
+            <p className="text-lg font-bold sm:text-base">${total}</p>
+          </div>
+        </div>
+        <div className="mt-6">
+          {/* Promo Code Input and Apply Button */}
+          <div className="flex flex-col sm:w-full space-y-4">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Add promo code"
+                className="w-full border p-2 rounded-full pl-10 sm:w-full md:w-[300px] lg:w-[400px]"
+              />
+              <Image
+                src="/Vector (3).png"
+                width={24}
+                height={24}
+                alt="Promo Code Icon"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2"
+              />
+            </div>
 
-        {/* Quantity buttons with borders */}
-        <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
-          <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
-            -
-          </button>
-          <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
-            1
-          </span>
-          <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
-            +
-          </button>
+           {/* Apply Button */}
+           <button
+              onClick={handleApplyPromo}
+              className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2"
+            >
+              Apply
+            </button>
+
+            {/* Go to Checkout Button with image on right side */}
+            <button
+              onClick={handleCheckout}
+              className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2 flex justify-center items-center space-x-3"
+            >
+              <span className="mr-2 text-base sm:text-sm">Go to Checkout</span>
+              <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
-
-    {/* Cart Item 2 */}
-    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
-      <div className="flex items-center space-x-4">
-        <Image
-          src="/Frame 34.png"
-          width={90} // Smaller image width for responsive
-          height={90} // Smaller image height for responsive
-          alt="Checkered Shirt"
-          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
-        />
-        <div>
-          <p className="text-base font-semibold sm:text-sm">Checkered Shirt</p> {/* Smaller font size on small screens */}
-          <p className="text-sm text-gray-600">Size: Medium</p>
-          <p className="text-sm text-gray-600">Color: Red</p>
-          <p className="text-base font-bold mt-3 sm:text-sm">$180</p> {/* Smaller font size on small screens */}
-        </div>
-      </div>
-
-      {/* Right section with image above the quantity buttons */}
-      <div className="relative flex items-center space-x-4">
-        {/* Image on top of -1+ buttons */}
-        <Image
-          src={"/Frame (15).png"}
-          width={24}
-          height={24}
-          alt="Image"
-          className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2" 
-        />
-
-        {/* Quantity buttons with borders */}
-        <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
-          <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
-            -
-          </button>
-          <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
-            1
-          </span>
-          <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
-            +
-          </button>
-        </div>
-      </div>
-    </div>
-
-    {/* Cart Item 3 */}
-    <div className="flex items-center justify-between border border-gray-300 rounded-lg p-4 sm:p-2 md:p-4">
-      <div className="flex items-center space-x-4">
-        <Image
-          src="/Frame 33 (5).png"
-          width={90} // Smaller image width for responsive
-          height={90} // Smaller image height for responsive
-          alt="Skinny Fit Jeans"
-          className="w-20 h-20 rounded sm:w-16 sm:h-16" // Responsive image size
-        />
-        <div>
-          <p className="text-base font-semibold sm:text-sm">Skinny Fit Jeans</p> {/* Smaller font size on small screens */}
-          <p className="text-sm text-gray-600">Size: Large</p>
-          <p className="text-sm text-gray-600">Color: Blue</p>
-          <p className="text-base font-bold mt-3 sm:text-sm">$240</p> {/* Smaller font size on small screens */}
-        </div>
-      </div>
-
-   {/* Right section with image above the quantity buttons */}
-<div className="relative flex items-center space-x-4 flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-4">
-  {/* Image on top of -1+ buttons */}
-  <Image
-    src={"/Frame (15).png"}
-    width={24}
-    height={24}
-    alt="Image"
-    className="absolute -top-10 left-1/2 transform mt-2 mb-5 -translate-x-1/2 sm:relative sm:top-0 sm:translate-x-0"
-  />
-
-  {/* Quantity buttons with borders */}
-  <div className="flex items-center bg-gray-200 rounded-full border border-gray-300 sm:p-1 md:p-2">
-    <button className="w-8 h-8 flex items-center justify-center text-black border-r border-gray-300 sm:w-6 sm:h-6">
-      -
-    </button>
-    <span className="w-10 text-center text-black bg-gray-100 flex items-center justify-center sm:w-8 sm:text-xs">
-      1
-    </span>
-    <button className="w-8 h-8 flex items-center justify-center text-black border-l border-gray-300 sm:w-6 sm:h-6">
-      +
-    </button>
-  </div>
-</div>
-</div>
-</div>
-
-       {/* Right: Order Summary */}
-<div className="border p-6 rounded-lg bg-white sm:p-4 md:p-6">
-  <h3 className="text-lg font-semibold mb-6 sm:text-base md:text-lg">Order Summary</h3>
-  <div className="space-y-4">
-    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
-      <p className="text-gray-600">Subtotal</p>
-      <p className="font-bold">$565</p>
-    </div>
-    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
-      <p className="text-gray-600">Discount (-20%)</p>
-      <p className="text-red-500">- $113</p>
-    </div>
-    <div className="flex justify-between sm:flex-col sm:space-y-2 md:flex-row">
-      <p className="text-gray-600">Delivery Fee</p>
-      <p className="font-bold">$15</p>
-    </div>
-    <div className="flex justify-between border-t pt-4 sm:flex-col sm:space-y-2 md:flex-row">
-      <p className="text-lg font-semibold sm:text-base">Total</p>
-      <p className="text-lg font-bold sm:text-base">$467</p>
-    </div>
-  </div>
-  <div className="mt-6">
-  {/* Promo Code Input and Apply Button */}
-  <div className="flex flex-col sm:w-full space-y-4">
-    <div className="relative w-full">
-      <input
-        type="text"
-        placeholder="Add promo code"
-        className="w-full border p-2 rounded-full pl-10 sm:w-full md:w-[300px] lg:w-[400px]"
-      />
-      <Image
-        src="/Vector (3).png"
-        width={24}
-        height={24}
-        alt="Promo Code Icon"
-        className="absolute left-3 top-1/2 transform -translate-y-1/2"
-      />
-    </div>
-    
-    {/* Apply Button */}
-    <button className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2">
-      Apply
-    </button>
-
-    {/* Go to Checkout Button with image on right side */}
-    <button className="w-full sm:w-full md:w-[300px] lg:w-[400px] h-[50px] bg-black text-white py-2 rounded-full mt-2 flex justify-center items-center space-x-3">
-      <span className="mr-2 text-base sm:text-sm">Go to Checkout</span>
-      <Image src={"/arrow-down-bold 1.png"} width={24} height={24} alt="Arrow Icon" />
-    </button>
-  </div>
-
-
-
-  </div>
-</div>
-</div>
   {/* Newsletter Signup */}
   <div className="w-full bg-black rounded-lg py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
           {/* Text Section */}

@@ -26,6 +26,49 @@ import {
 
 const Page = () => {
 
+  const [quantity, setQuantity] = useState(1);
+
+  // Handle increasing the quantity
+  const increaseQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+  };
+
+  // Handle decreasing the quantity
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(prevQuantity => prevQuantity - 1);
+    }
+  };
+
+  const addToCart = () => {
+    const itemToAdd = {
+      id: 1, // Unique ID for the item (could be dynamic)
+      name: "One Life Graphic T-shirt", // Product name
+      price: 260, // Product price
+      quantity: quantity, // Quantity selected
+      image: "/image 1.png", // Product image path
+    };
+  
+    // Get the current cart from localStorage, or create an empty array if none exists
+    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+  
+    // Check if the item is already in the cart (by matching id)
+    const existingItemIndex = existingCart.findIndex((item: any) => item.id === itemToAdd.id);
+  
+    if (existingItemIndex !== -1) {
+      // If the item exists, update the quantity
+      existingCart[existingItemIndex].quantity += itemToAdd.quantity;
+    } else {
+      // If the item does not exist, add it
+      existingCart.push(itemToAdd);
+    }
+  
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+  
+    alert(`${quantity} item(s) added to the cart!`);
+  };
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
 
@@ -125,7 +168,7 @@ const Page = () => {
               <br />
               {/* Link for Casual */}
               <NavigationMenuLink className="font-bold text-black block mb-2">
-                <Link href="/comp/casual-clothes">Casual</Link>
+                <Link href="/comp/casual">Casual</Link>
               </NavigationMenuLink>
               {/* Line break added */}
               <br />
@@ -377,15 +420,28 @@ const Page = () => {
 
 {/* Quantity Selector */}
 <div className="flex flex-wrap items-center mb-6 gap-4 justify-center md:justify-start">
-  <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
-    <button className="text-lg font-semibold text-black">-</button>
-    <span className="text-sm text-center text-black">1</span>
-    <button className="text-lg font-semibold text-black">+</button>
-  </div>
-  <button className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center">
-    Add to Cart
-  </button>
-</div>
+      <div className="flex items-center justify-between border bg-gray-100 px-4 py-2 rounded-full w-[170px] h-[52px]">
+        <button
+          className="text-lg font-semibold text-black"
+          onClick={decreaseQuantity}
+        >
+          -
+        </button>
+        <span className="text-sm text-center text-black">{quantity}</span>
+        <button
+          className="text-lg font-semibold text-black"
+          onClick={increaseQuantity}
+        >
+          +
+        </button>
+      </div>
+      <button
+        className="px-6 py-3 bg-black text-white text-sm rounded-full hover:bg-gray-800 w-full sm:w-[400px] h-[52px] flex items-center justify-center"
+        onClick={addToCart}
+      >
+        Add to Cart
+      </button>
+    </div>
 </div>
 </div></div>
 </section>
